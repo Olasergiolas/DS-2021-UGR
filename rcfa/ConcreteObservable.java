@@ -26,7 +26,7 @@ public class ConcreteObservable extends java.util.Observable implements Runnable
         num_casos = casos;
         setChanged();
         notifyObservers();
-        System.out.println("Estoy siendo modificado!: " + casos + "\n");
+        System.out.println("Soy observable, estoy siendo modificado!: " + casos + "\n");
     }
     
     public void run(){

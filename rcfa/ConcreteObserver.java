@@ -19,6 +19,6 @@ public class ConcreteObserver implements java.util.Observer{
     @Override
     public void update(java.util.Observable o, Object arg){
         observable = (ConcreteObservable) o;
-        System.out.println("Algo ha cambiado!: " + observable.getState() + "\n");
+        System.out.println("Soy observador SUSCRITO, algo ha cambiado!: " + observable.getState() + "\n");
     }
 }

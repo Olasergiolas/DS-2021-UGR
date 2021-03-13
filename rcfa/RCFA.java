@@ -15,10 +15,14 @@ public class RCFA {
     public static void main(String[] args) {
         ConcreteObservable observable = new ConcreteObservable(1000);
         Thread observableThread = new Thread(observable);
-        ConcreteObserver observer = new ConcreteObserver();
+        ConcreteObserver observer = new ConcreteObserver();   
+        ConcreteObserverPull observerPull = new ConcreteObserverPull(observable);
+        Thread threadObserverPull = new Thread(observerPull);
         
         observable.addObserver(observer);
-        observableThread.start();
+        
+        observableThread.start();     
+        threadObserverPull.start();
 
     }
     

@@ -14,6 +14,12 @@ import java.util.Observer;
 public class ConcreteObserverPull implements java.util.Observer, Runnable{
     
     private ConcreteObservable observable;
+    private double num_casos;
+    
+    ConcreteObserverPull(ConcreteObservable o){
+        observable = o;
+        num_casos = o.getState();
+    }
     
     @Override
     public void update(java.util.Observable o, Object arg){
@@ -21,16 +27,18 @@ public class ConcreteObserverPull implements java.util.Observer, Runnable{
     }
     
     public void run(){
-        double mirmir = Math.random()*5000;
-            try{
-                Thread.sleep((long)mirmir);
+        while(true){
+            double mirmir = Math.random()*5000;
+                try{
+                    Thread.sleep((long)mirmir);
+                }
+                catch(InterruptedException e){
+                    System.out.println("Error sleep\n");
+                }
+            if(num_casos != observable.getState()){
+                num_casos = observable.getState();
+                System.out.println(" Soy observador NO SUSCRITO, mi numero de casos es:" + observable.getState() + "\n");
             }
-            catch(InterruptedException e){
-                System.out.println("Error sleep\n");
-            }
-        
-        if(observable.hasChanged()){
-            System.out.println("Pull ha detectado cambio!");       
         }
     }
 }
