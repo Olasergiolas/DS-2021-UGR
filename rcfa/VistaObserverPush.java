@@ -15,16 +15,16 @@ public class VistaObserverPush extends javax.swing.JFrame {
      * Creates new form VistaObserverPush
      */
     
-    private double casos;
+    private RCFA rcfa;
     
     public VistaObserverPush() {
         initComponents();
-        casos = 0;
-        num_casos.setText(String.valueOf(casos));
+        rcfa = RCFA.getInstance();
+        num_casos.setText(String.valueOf(0));
     }
     
-    public void setCasos(double c){
-        casos = c;
+    public void actualizar(){
+        num_casos.setText(String.valueOf(rcfa.getObserverPush().getCasos()));
     }
 
     /**

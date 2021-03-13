@@ -23,6 +23,10 @@ public class ConcreteObserverPush implements java.util.Observer{
     }
     
     public double getCasos(){
-        return observable.getState();
+        if (observable != null)
+            return observable.getState();
+        
+        else
+            return 0;
     }
 }

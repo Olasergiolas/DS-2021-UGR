@@ -11,6 +11,8 @@ package rcfa;
  */
 
 public class RCFA {
+    private static RCFA instancia = null;
+    
     private ConcreteObservable observable;
     private ConcreteObserverPush observerPush;
     private ConcreteObserverPull observerPull;
@@ -18,7 +20,7 @@ public class RCFA {
     
     private Thread observableThread, threadObserverPull, threadObserverModificador;
     
-    public RCFA(){
+    private RCFA(){
         observable = new ConcreteObservable(1000);
         observableThread = new Thread(observable);
         
@@ -40,11 +42,28 @@ public class RCFA {
         threadObserverModificador.start();
     }
     
+    public static RCFA getInstance(){
+        if (instancia == null)
+            instancia = new RCFA();
+        
+        return instancia;
+    }
+    
+    public ConcreteObserverPush getObserverPush(){
+        return observerPush;
+    }
+    
     public static void main(String[] args) {
         
-        RCFA radar = new RCFA(); 
+        RCFA radar = RCFA.getInstance();
         radar.startThreads();
-        new VistaObserverPush().setVisible(true);
+        
+        VistaObserverPush observerPushVista = new VistaObserverPush();
+        observerPushVista.setVisible(true);
+        
+        while(true){
+            observerPushVista.actualizar();
+        }
     }
     
 }
