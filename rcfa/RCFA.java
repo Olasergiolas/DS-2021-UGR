@@ -19,10 +19,7 @@ public class RCFA {
         
         observable.addObserver(observer);
         observableThread.start();
-        
-        
-        //updater.update(observable, null);
-        //updater.start();
+
     }
     
 }
