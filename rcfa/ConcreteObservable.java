@@ -26,7 +26,6 @@ public class ConcreteObservable extends java.util.Observable implements Runnable
         num_casos = casos;
         setChanged();
         notifyObservers();
-        System.out.println("Soy observable, estoy siendo modificado!: " + casos + "\n");
     }
     
     public void run(){
@@ -39,6 +38,7 @@ public class ConcreteObservable extends java.util.Observable implements Runnable
             catch(InterruptedException e){
                 System.out.println("Error sleep\n");
             }
+            System.out.println("Soy observable, voy a modificarme!: " + casos + "\n");
             setState(casos);
         }        
     }

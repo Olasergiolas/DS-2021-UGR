@@ -23,7 +23,7 @@ public class ConcreteObserverPull implements java.util.Observer, Runnable{
     
     @Override
     public void update(java.util.Observable o, Object arg){
-        observable = (ConcreteObservable) o;
+        num_casos = observable.getState();
     }
     
     public void run(){
@@ -36,7 +36,7 @@ public class ConcreteObserverPull implements java.util.Observer, Runnable{
                     System.out.println("Error sleep\n");
                 }
             if(num_casos != observable.getState()){
-                num_casos = observable.getState();
+                this.update(observable, null);
                 System.out.println(" Soy observador NO SUSCRITO, mi numero de casos es:" + observable.getState() + "\n");
             }
         }
