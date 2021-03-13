@@ -11,25 +11,40 @@ package rcfa;
  */
 
 public class RCFA {
-
-    public static void main(String[] args) {
-        ConcreteObservable observable = new ConcreteObservable(1000);
-        Thread observableThread = new Thread(observable);
+    private ConcreteObservable observable;
+    private ConcreteObserverPush observerPush;
+    private ConcreteObserverPull observerPull;
+    private ConcreteObserverModificador observerModificador;
+    
+    private Thread observableThread, threadObserverPull, threadObserverModificador;
+    
+    public RCFA(){
+        observable = new ConcreteObservable(1000);
+        observableThread = new Thread(observable);
         
-        ConcreteObserver observer = new ConcreteObserver(); 
+        observerPush = new ConcreteObserverPush();
         
-        ConcreteObserverPull observerPull = new ConcreteObserverPull(observable);
-        Thread threadObserverPull = new Thread(observerPull);
+        observerPull = new ConcreteObserverPull(observable);
+        threadObserverPull = new Thread(observerPull);
         
-        ConcreteObserverModificador observerModificador = new ConcreteObserverModificador();
-        Thread threadObserverModificador = new Thread(observerModificador);
+        observerModificador = new ConcreteObserverModificador();
+        threadObserverModificador = new Thread(observerModificador);
         
-        observable.addObserver(observer);
+        observable.addObserver(observerPush);
         observable.addObserver(observerModificador);
-        
+    }
+    
+    public void startThreads(){
         observableThread.start();     
         threadObserverPull.start();
         threadObserverModificador.start();
+    }
+    
+    public static void main(String[] args) {
+        
+        RCFA radar = new RCFA(); 
+        radar.startThreads();
+        new VistaObserverPush().setVisible(true);
     }
     
 }

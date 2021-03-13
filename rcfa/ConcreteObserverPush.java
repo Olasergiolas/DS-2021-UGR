@@ -12,7 +12,7 @@ import java.util.Observable;
  *
  * @author sergiogarcia
  */
-public class ConcreteObserver implements java.util.Observer{
+public class ConcreteObserverPush implements java.util.Observer{
     
     private ConcreteObservable observable;
     
@@ -20,5 +20,9 @@ public class ConcreteObserver implements java.util.Observer{
     public void update(java.util.Observable o, Object arg){
         observable = (ConcreteObservable) o;
         System.out.println("Soy observador SUSCRITO, algo ha cambiado!: " + observable.getState() + "\n");
+    }
+    
+    public double getCasos(){
+        return observable.getState();
     }
 }

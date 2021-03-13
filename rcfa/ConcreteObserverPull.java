@@ -37,7 +37,8 @@ public class ConcreteObserverPull implements java.util.Observer, Runnable{
                 }
             if(num_casos != observable.getState()){
                 this.update(observable, null);
-                System.out.println(" Soy observador NO SUSCRITO, mi numero de casos es:" + observable.getState() + "\n");
+                System.out.println("Soy observador NO SUSCRITO, mi numero de casos es: "
+                        + observable.getState() + "\n");
             }
         }
     }
