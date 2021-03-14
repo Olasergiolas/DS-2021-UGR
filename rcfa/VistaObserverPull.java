@@ -21,6 +21,9 @@ public class VistaObserverPull extends javax.swing.JFrame {
     
     public void actualizar(){
         double num_casos_100k = rcfa.getObserverPull().getCasos()/1000;
+        num_casos_100k = num_casos_100k  * Math.pow(10, 4); 
+        num_casos_100k = Math.floor(num_casos_100k); 
+        num_casos_100k = num_casos_100k / Math.pow(10,4); 
         num_casos_100k_L.setText(String.valueOf(num_casos_100k));
     }
 

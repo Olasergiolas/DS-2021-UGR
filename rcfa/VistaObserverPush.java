@@ -24,7 +24,7 @@ public class VistaObserverPush extends javax.swing.JFrame {
     }
     
     public void actualizar(){
-        num_casos.setText(String.valueOf(rcfa.getObserverPush().getCasos()));
+        num_casos.setText(String.valueOf((int)rcfa.getObserverPush().getCasos()));
     }
 
     /**
