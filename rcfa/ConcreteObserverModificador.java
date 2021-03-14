@@ -9,7 +9,7 @@ package rcfa;
  *
  * @author ines
  */
-public class ConcreteObserverModificador implements java.util.Observer, Runnable {
+public class ConcreteObserverModificador implements java.util.Observer {
     private ConcreteObservable observable;
     
     @Override
@@ -17,21 +17,16 @@ public class ConcreteObserverModificador implements java.util.Observer, Runnable
         observable = (ConcreteObservable) o;
     }
     
-    public void run(){
-        while(true){
-            double mirmir = Math.random()*5000;
-            double casos = Math.random()*100;
-            try{
-                Thread.sleep((long)mirmir);
-            }
-            catch(InterruptedException e){
-                System.out.println("Error sleep\n");
-            }
-            if(observable != null){
-                System.out.println("Soy observador MODIFICADOR, estoy cambiando algo!: " + observable.getState() + "\n");
-                observable.setState(casos);
-            }
-        }  
+    public void setCasos(){
+        double casos = Math.random()*100;
+        System.out.println("Soy observador MODIFICADOR, estoy cambiando algo!: " + observable.getState() + "\n");
+        observable.setState(casos); 
+    }
+    
+    public double getCasos(){
+        if(observable !=null)
+            return observable.getState();
+        else return 0;
     }
     
 }

@@ -18,7 +18,7 @@ public class RCFA {
     private ConcreteObserverPull observerPull;
     private ConcreteObserverModificador observerModificador;
     
-    private Thread observableThread, threadObserverPull, threadObserverModificador;
+    private Thread observableThread, threadObserverPull;
     
     private RCFA(){
         observable = new ConcreteObservable(1000);
@@ -30,7 +30,6 @@ public class RCFA {
         threadObserverPull = new Thread(observerPull);
         
         observerModificador = new ConcreteObserverModificador();
-        threadObserverModificador = new Thread(observerModificador);
         
         observable.addObserver(observerPush);
         observable.addObserver(observerModificador);
@@ -39,7 +38,6 @@ public class RCFA {
     public void startThreads(){
         observableThread.start();     
         threadObserverPull.start();
-        threadObserverModificador.start();
     }
     
     public static RCFA getInstance(){
@@ -57,6 +55,10 @@ public class RCFA {
         return observerPull;
     }
     
+    public ConcreteObserverModificador getObserverModificador(){
+        return observerModificador;
+    }
+    
     public static void main(String[] args) {
         
         RCFA radar = RCFA.getInstance();
@@ -68,9 +70,13 @@ public class RCFA {
         VistaObserverPull observerPullVista = new VistaObserverPull();
         observerPullVista.setVisible(true);
         
+        VistaObserverModificador observerModificadorVista = new VistaObserverModificador();
+        observerModificadorVista.setVisible(true); 
+       
         while(true){
             observerPushVista.actualizar();
             observerPullVista.actualizar();
+            observerModificadorVista.actualizar();
         }
     }
     
