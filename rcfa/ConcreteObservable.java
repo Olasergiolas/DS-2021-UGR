@@ -31,7 +31,7 @@ public class ConcreteObservable extends java.util.Observable implements Runnable
     public void run(){
         while(true){
             double mirmir = Math.random()*5000;
-            double casos = Math.random()*100;
+            double casos = Math.random()*1000;
             try{
                 Thread.sleep((long)mirmir);
             }

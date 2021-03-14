@@ -9,18 +9,26 @@ package rcfa;
  *
  * @author sergiogarcia
  */
-public class VistaObserverPush extends javax.swing.JFrame {
+public class VistaObserverPushComplejo extends javax.swing.JFrame {
     
     private RCFA rcfa;
     
-    public VistaObserverPush() {
+    public VistaObserverPushComplejo() {
         initComponents();
         rcfa = RCFA.getInstance();
-        num_casos.setText(String.valueOf(0));
+        progressbar_confinamiento.setValue(0);
     }
     
     public void actualizar(){
-        num_casos.setText(String.valueOf((int)rcfa.getObserverPush().getCasos()));
+        //Confinamiento a partir de 500 casos
+        
+        double progreso = rcfa.getObserverPush().getCasos();
+        progreso = (progreso/500) * 100;
+        
+        if (progreso > 100)
+            progreso = 100;
+        
+        progressbar_confinamiento.setValue((int)progreso);
     }
 
     /**
@@ -33,39 +41,52 @@ public class VistaObserverPush extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        casosL = new javax.swing.JLabel();
-        num_casos = new javax.swing.JLabel();
+        progressbar_L = new javax.swing.JLabel();
+        progressbar_confinamiento = new javax.swing.JProgressBar();
+        pedro = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("ObserverPush");
+        setTitle("VistaObserverPushComplejo");
 
-        jPanel1.setBackground(new java.awt.Color(0, 153, 204));
-        jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel1.setBackground(new java.awt.Color(204, 204, 0));
+        jPanel1.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(255, 153, 51)));
 
-        casosL.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
-        casosL.setText("Casos Totales:");
+        progressbar_L.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        progressbar_L.setForeground(new java.awt.Color(0, 0, 0));
+        progressbar_L.setText("PROGRESO HASTA EL CONFINAMIENTO");
 
-        num_casos.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        progressbar_confinamiento.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        progressbar_confinamiento.setStringPainted(true);
+
+        pedro.setIcon(new javax.swing.ImageIcon("/home/sergiogarcia/NetBeansProjects/RCFA/img/pedro.png")); // NOI18N
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(42, Short.MAX_VALUE)
+                .addComponent(progressbar_L)
+                .addGap(39, 39, 39))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(casosL)
-                .addGap(31, 31, 31)
-                .addComponent(num_casos, javax.swing.GroupLayout.DEFAULT_SIZE, 174, Short.MAX_VALUE)
+                .addComponent(progressbar_confinamiento, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(151, 151, 151)
+                .addComponent(pedro, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(124, 124, 124)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(casosL, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(num_casos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(129, Short.MAX_VALUE))
+                .addContainerGap()
+                .addComponent(progressbar_L)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(pedro, javax.swing.GroupLayout.PREFERRED_SIZE, 128, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(progressbar_confinamiento, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -79,7 +100,7 @@ public class VistaObserverPush extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+            .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
@@ -105,27 +126,28 @@ public class VistaObserverPush extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(VistaObserverPush.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VistaObserverPushComplejo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(VistaObserverPush.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VistaObserverPushComplejo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(VistaObserverPush.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VistaObserverPushComplejo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(VistaObserverPush.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VistaObserverPushComplejo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new VistaObserverPush().setVisible(true);
+                new VistaObserverPushComplejo().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel casosL;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JLabel num_casos;
+    private javax.swing.JLabel pedro;
+    private javax.swing.JLabel progressbar_L;
+    private javax.swing.JProgressBar progressbar_confinamiento;
     // End of variables declaration//GEN-END:variables
 }

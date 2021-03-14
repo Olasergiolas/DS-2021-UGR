@@ -17,6 +17,7 @@ public class RCFA {
     private ConcreteObserverPush observerPush;
     private ConcreteObserverPull observerPull;
     private ConcreteObserverModificador observerModificador;
+    private ConcreteObserverPush observerPushComplejo;
     
     private Thread observableThread, threadObserverPull;
     
@@ -31,8 +32,11 @@ public class RCFA {
         
         observerModificador = new ConcreteObserverModificador();
         
+        observerPushComplejo = new ConcreteObserverPush();
+        
         observable.addObserver(observerPush);
         observable.addObserver(observerModificador);
+        observable.addObserver(observerPushComplejo);
     }
     
     public void startThreads(){
@@ -71,12 +75,17 @@ public class RCFA {
         observerPullVista.setVisible(true);
         
         VistaObserverModificador observerModificadorVista = new VistaObserverModificador();
-        observerModificadorVista.setVisible(true); 
+        observerModificadorVista.setVisible(true);
+        
+        VistaObserverPushComplejo observerPushComplejoVista
+                = new VistaObserverPushComplejo();
+        observerPushComplejoVista.setVisible(true);
        
         while(true){
             observerPushVista.actualizar();
             observerPullVista.actualizar();
             observerModificadorVista.actualizar();
+            observerPushComplejoVista.actualizar();
         }
     }
     
