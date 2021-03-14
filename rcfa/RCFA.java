@@ -53,6 +53,10 @@ public class RCFA {
         return observerPush;
     }
     
+    public ConcreteObserverPull getObserverPull(){
+        return observerPull;
+    }
+    
     public static void main(String[] args) {
         
         RCFA radar = RCFA.getInstance();
@@ -61,8 +65,12 @@ public class RCFA {
         VistaObserverPush observerPushVista = new VistaObserverPush();
         observerPushVista.setVisible(true);
         
+        VistaObserverPull observerPullVista = new VistaObserverPull();
+        observerPullVista.setVisible(true);
+        
         while(true){
             observerPushVista.actualizar();
+            observerPullVista.actualizar();
         }
     }
     

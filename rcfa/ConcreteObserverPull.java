@@ -26,6 +26,10 @@ public class ConcreteObserverPull implements java.util.Observer, Runnable{
         num_casos = observable.getState();
     }
     
+    public double getCasos(){
+        return num_casos;
+    }
+    
     public void run(){
         while(true){
             double mirmir = Math.random()*5000;
