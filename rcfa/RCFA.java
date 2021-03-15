@@ -35,11 +35,12 @@ public class RCFA {
         
         observerPushComplejo = new ConcreteObserverPush();
         
-        observerComposite = new ConcreteObserverComposite(observable);
+        observerComposite = new ConcreteObserverComposite();
         
         observable.addObserver(observerPush);
         observable.addObserver(observerModificador);
         observable.addObserver(observerPushComplejo);
+        observable.addObserver(observerComposite);
     }
     
     public void startThreads(){

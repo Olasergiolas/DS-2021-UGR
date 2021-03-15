@@ -14,22 +14,24 @@ public class ConcreteObserverComposite implements java.util.Observer  {
     private ConcreteObserverPush observerPush;
     private ConcreteObserverModificador observerModificador;
     
-    public ConcreteObserverComposite(ConcreteObservable o){
-        observable = o;
+    public ConcreteObserverComposite(){
         observerPush = new ConcreteObserverPush();
         observerModificador = new ConcreteObserverModificador();
-        
-        observable.addObserver(observerPush);
-        observable.addObserver(observerModificador);
     }
     
     public void update(java.util.Observable o, Object arg){
         observable = (ConcreteObservable) o;
+        
+        observerPush.update(observable, null);
+        observerModificador.update(observable, null);
         System.out.println("Soy observador COMPOSITE, algo ha cambiado!: " + observable.getState() + "\n");
     }
     
     public double getCasos(){
-        return observable.getState();
+        if(observable != null)
+            return observable.getState();
+        else
+            return 0;
     }
     
     public ConcreteObserverModificador getObserverModificador(){
