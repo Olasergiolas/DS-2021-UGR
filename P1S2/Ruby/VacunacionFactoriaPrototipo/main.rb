@@ -11,7 +11,7 @@ module Vacunacion
   class Cliente
     def initialize
       @factoria
-      @ciudadanos
+      @ciudadanos = []
       @dosis = []
     end
 
@@ -27,14 +27,14 @@ module Vacunacion
         dosis = @factoria.crearDosis
         dosis.serie = SecureRandom.uuid
         puts("Clonada dosis Moderna con serial #{dosis.serie}")
-        #@dosis << dosis
+        @dosis << dosis
 
         ciudadano = @factoria.crearCiudadano
         ciudadano.dni = rand(100000000..999999999)
         ciudadano.edad = rand(50..111)
         puts("Clonado ciudadano Moderna con dni #{ciudadano.dni} y edad #{ciudadano.edad}")
         puts("")
-        #@ciudadano << ciudadano
+        @ciudadanos << ciudadano
       end
 
       puts ("Finalizado proceso vacunación Moderna")
@@ -53,14 +53,14 @@ module Vacunacion
         dosis = @factoria.crearDosis
         dosis.serie = SecureRandom.uuid
         puts("Clonada dosis Pfizer con serial #{dosis.serie}")
-        #@dosis << dosis
+        @dosis << dosis
 
         ciudadano = @factoria.crearCiudadano
         ciudadano.dni = rand(100000000..999999999)
         ciudadano.edad = rand(50..111)
         puts("Clonado ciudadano Pfizer con dni #{ciudadano.dni} y edad #{ciudadano.edad}")
         puts("")
-        #@ciudadano << ciudadano
+        @ciudadanos << ciudadano
       end
 
       puts ("Finalizado proceso vacunación Pfizer")
