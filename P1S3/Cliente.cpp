@@ -1,17 +1,18 @@
 //
-// Created by ines on 26/3/21.
+// Created by ines on 8/4/21.
 //
 
 #include "Cliente.h"
 
-Cliente::Cliente() {
-
+Cliente::Cliente(GestorFiltros g){
+    gestorFiltros = g;
 }
 
-void Cliente::enviarSolicitud() {
-
+void Cliente::setFormulario(Formulario f){
+    formulario = f;
 }
 
-void Cliente::setGestorFiltro(GestorFiltro g) {
-    gestor = g;
+void Cliente::enviarFormulario() {
+    gestorFiltros.setFormulario(formulario);
+    gestorFiltros.procesarFormulario();
 }

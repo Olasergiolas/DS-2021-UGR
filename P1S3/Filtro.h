@@ -1,15 +1,16 @@
 //
-// Created by ines on 26/3/21.
+// Created by ines on 8/4/21.
 //
 
-#ifndef UNTITLED_FILTRO_H
-#define UNTITLED_FILTRO_H
+#ifndef DSP1_S3_FILTRO_H
+#define DSP1_S3_FILTRO_H
 
+#include "Formulario.h"
 
 class Filtro {
 public:
-    virtual void ejecutar();
+    virtual void procesar(Formulario &formulario);
 };
 
 
-#endif //UNTITLED_FILTRO_H
+#endif //DSP1_S3_FILTRO_H

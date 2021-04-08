@@ -1,22 +1,10 @@
 #include <iostream>
-#include "Cliente.h"
-#include "ReporteMuertes.h"
-#include "GestorFiltro.h"
 
-#define MAX 999
-
-using namespace std;
 int main() {
-    Cliente cliente;
-    GestorFiltro gestorFiltro;
-    ReporteMuertes reporte;
-
-    cliente.setGestorFiltro(gestorFiltro);
-    while(true){
-        reporte.setProvincia(PROVINCIAS(rand()%7));
-        reporte.setMuertes(rand()%MAX,rand()%MAX,rand()%MAX, rand()%MAX);
-
-        //cliente.enviarSolicitud();
-    }
+    //Cliente envia un formulario de contacto con un + al ministerio
+    //Se pasa por un filtro de encriptación porque se manda info personal
+    //El 2o filtro es para rellenar el campo prioridad por defecto BAJA, a en funcion
+    //de su edad a alta
+    std::cout << "Hello, World!" << std::endl;
     return 0;
 }

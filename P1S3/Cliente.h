@@ -1,20 +1,22 @@
 //
-// Created by ines on 26/3/21.
+// Created by ines on 8/4/21.
 //
 
-#ifndef UNTITLED_CLIENTE_H
-#define UNTITLED_CLIENTE_H
+#ifndef DSP1_S3_CLIENTE_H
+#define DSP1_S3_CLIENTE_H
 
-#include "GestorFiltro.h"
+#include "Formulario.h"
+#include "GestorFiltros.h"
 
 class Cliente {
 private:
-    GestorFiltro gestor;
+    Formulario formulario;
+    GestorFiltros gestorFiltros;
 public:
-    Cliente();
-    void setGestorFiltro(GestorFiltro g);
-    void enviarSolicitud();
+    Cliente(GestorFiltros g);
+    void enviarFormulario();
+    void setFormulario(Formulario f);
 };
 
 
-#endif //UNTITLED_CLIENTE_H
+#endif //DSP1_S3_CLIENTE_H
