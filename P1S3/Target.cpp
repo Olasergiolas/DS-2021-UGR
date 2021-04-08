@@ -7,6 +7,7 @@
 Target::Target() {
     cita.hora = 8;
     cita.dia = 31;
+    formularios_recibidos = 0;
 }
 
 void Target::recibirFormulario(Formulario &formulario) {
@@ -24,6 +25,13 @@ void Target::recibirFormulario(Formulario &formulario) {
         descifrar(formulario);
         cout << "FORMULARIO : " << endl;
         mostrarFormulario(formulario);
+    }
+
+    //Para ahorrar recursos, el target asigna citas cada 5 formularios
+    formularios_recibidos++;
+    if (formularios_recibidos >= 5){
+        formularios_recibidos = 0;
+        despacharCitas();
     }
 }
 
@@ -85,11 +93,15 @@ void Target::despacharCitas() {
         cout << "La persona con DNI " << cita.dni << " se le concede cita para PCR el dia "
              << cita.dia << " a las " << cita.hora << endl;
     }
+
+    formularios_alta.clear();
+    formularios_media.clear();
+    formularios_baja.clear();
 }
 
 void Target::setCita() {
     if (cita.hora > 14) {
-        if (cita.dia <= 31)
+        if (cita.dia < 31)
             cita.dia++;
         else
             cita.dia = 1;

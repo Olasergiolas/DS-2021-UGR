@@ -23,6 +23,7 @@ private:
     vector<Formulario> formularios_media;
     vector<Formulario> formularios_baja;
     Cita cita;
+    unsigned formularios_recibidos;
 
     void descifrar(Formulario &formulario);
     void setCita();

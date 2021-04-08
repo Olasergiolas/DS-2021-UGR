@@ -5,7 +5,6 @@
 #include "random"
 #include "FiltroEncriptacion.h"
 #include "FiltroPrioridad.h"
-#include "memory"
 
 using namespace std;
 int main() {
@@ -23,7 +22,7 @@ int main() {
 
     vector<string> descripciones;
     descripciones.push_back("\nEstuve en contacto con mi familia gitana el otro día");
-   /* descripciones.push_back("\nEstoy to el día echando mocos por la gargata");
+    descripciones.push_back("\nEstoy to el día echando mocos por la gargata");
     descripciones.push_back("\nMi novio lo ha pillao, el otro día estuvimos juntos");
     descripciones.push_back("\nMe contagié en el programa de Juan y Medio conociendo el amor");
     descripciones.push_back("\nMe duele la garganta");
@@ -31,7 +30,7 @@ int main() {
     descripciones.push_back("\nHe vuelto a estar en contacto con mi familia gitana");
     descripciones.push_back("\nMe ha salido un hongo en el pie");
     descripciones.push_back("\nLa Kylie Jenner dice de hacerselo todas las mañanas");
-    descripciones.push_back("\nEstoy harta de escribir");*/
+    descripciones.push_back("\nEstoy harta de escribir");
 
 
     Formulario formulario;
@@ -51,8 +50,6 @@ int main() {
         cliente.enviarFormulario();
     }
     cout << endl << endl;
-
-   gestorFiltros.getTarget()->despacharCitas();
 
     return 0;
 }
