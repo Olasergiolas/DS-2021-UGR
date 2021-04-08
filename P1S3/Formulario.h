@@ -16,6 +16,7 @@ private:
     string descripcion;
     PRIORIDAD prioridad;
     string dni;
+    bool encriptado;
 public:
     Formulario();
     Formulario(unsigned e,string des,string d);
@@ -27,6 +28,8 @@ public:
     void setDescripcion(string d);
     string getDNI();
     void setDNI(string d);
+    bool getEncryptionStatus();
+    void setEncryptionStatus(bool status);
 };
 
 

@@ -5,14 +5,20 @@
 #include "random"
 #include "FiltroEncriptacion.h"
 #include "FiltroPrioridad.h"
+#include "memory"
 
 using namespace std;
 int main() {
     Target ministerio;
 
-    FiltroEncriptacion f1;
-    FiltroPrioridad f2;
+    //FiltroEncriptacion f1;
+    //FiltroPrioridad f2;
+
+    FiltroEncriptacion* f1 = new FiltroEncriptacion();
+    FiltroPrioridad* f2 = new FiltroPrioridad();
+
     GestorFiltros gestorFiltros(ministerio);
+
     gestorFiltros.addFiltros(f1);
     gestorFiltros.addFiltros(f2);
 

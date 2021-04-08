@@ -18,7 +18,8 @@ public:
     GestorFiltros();
     GestorFiltros(Target t);
     void setFormulario(Formulario f);
-    void addFiltros(Filtro f);
+    void addFiltros(Filtro* f);
+    void deleteFiltros(Filtro* f);
     void procesarFormulario();
     void enviarFormulario();
 };

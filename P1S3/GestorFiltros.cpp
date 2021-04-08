@@ -14,8 +14,12 @@ void GestorFiltros::setFormulario(Formulario f) {
     formulario = f;
 }
 
-void GestorFiltros::addFiltros(Filtro f) {
+void GestorFiltros::addFiltros(Filtro *f) {
     cadenaFiltros.addFiltros(f);
+}
+
+void GestorFiltros::deleteFiltros(Filtro *f) {
+    cadenaFiltros.deleteFiltros(f);
 }
 
 //Método para ejecutar el FilterManager

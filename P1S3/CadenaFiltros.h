@@ -8,15 +8,17 @@
 #include <vector>
 #include "Filtro.h"
 #include "Formulario.h"
+#include <memory>
 
 using namespace std;
 
 class CadenaFiltros {
 private:
-    vector<Filtro> filtros;
+    vector<Filtro*> filtros;
 public:
     CadenaFiltros();
-    void addFiltros(Filtro f);
+    void addFiltros(Filtro* f);
+    void deleteFiltros(Filtro* f);
     void procesarFormulario(Formulario &formulario);
 };
 

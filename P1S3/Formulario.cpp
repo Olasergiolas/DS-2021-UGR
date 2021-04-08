@@ -11,6 +11,7 @@ Formulario::Formulario(unsigned e,string des,string d){
     descripcion = des;
     prioridad = BAJA;
     dni = d;
+    encriptado = false;
 }
 
 void Formulario::setPrioridad(PRIORIDAD p) {
@@ -43,4 +44,12 @@ void Formulario::setDescripcion(string d) {
 
 PRIORIDAD Formulario::getPrioridad() {
     return prioridad;
+}
+
+void Formulario::setEncryptionStatus(bool status){
+    encriptado = status;
+}
+
+bool Formulario::getEncryptionStatus() {
+    return encriptado;
 }

@@ -3,17 +3,31 @@
 //
 
 #include "CadenaFiltros.h"
+#include <vector>
+#include <algorithm>
 
 CadenaFiltros::CadenaFiltros() {
 
 }
 
-void CadenaFiltros::addFiltros(Filtro f) {
+void CadenaFiltros::addFiltros(Filtro* f) {
     filtros.push_back(f);
 }
 
+void CadenaFiltros::deleteFiltros(Filtro *f) {
+    vector<Filtro*>::iterator it = std::find(std::begin(filtros), end(filtros), f);
+
+    if (it != filtros.end()){
+        filtros.erase(it);
+        std::cout << "El filtro ha sido borrado" << endl << endl;
+    }
+
+}
+
 void CadenaFiltros::procesarFormulario(Formulario &formulario) {
-    for(unsigned i = 0; i < filtros.size(); i++){
-        filtros[i].procesar(formulario);
+    Filtro *f;
+
+    for(unsigned i = 0; i < filtros.size(); ++i) {
+        filtros[i]->procesar(formulario);
     }
 }

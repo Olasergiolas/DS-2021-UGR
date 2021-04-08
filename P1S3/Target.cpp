@@ -16,10 +16,11 @@ void Target::recibirFormulario(Formulario &formulario) {
 
     cout << endl << endl;
 
-    descifrar(formulario);
-    cout << "FORMULARIO DESENCRIPTADO: " << endl;
-    mostrarFormulario(formulario);
-}
+    if (formulario.getEncryptionStatus()) {}
+        descifrar(formulario);
+        cout << "FORMULARIO : " << endl;
+        mostrarFormulario(formulario);
+    }
 
 void Target::descifrar(Formulario &formulario) {
     cout << "Descifrando formulario..." << endl << endl;
@@ -53,6 +54,8 @@ void Target::descifrar(Formulario &formulario) {
             formularios_baja.push_back(formulario_desencriptado);
             break;
     }
+
+    formulario = formulario_desencriptado;
 }
 
 void Target::despacharCitas() {
