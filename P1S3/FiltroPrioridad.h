@@ -9,6 +9,7 @@
 #include "Formulario.h"
 
 class FiltroPrioridad: public Filtro {
+public:
     FiltroPrioridad();
     void procesar(Formulario &formulario) override;
 };

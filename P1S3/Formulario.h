@@ -20,6 +20,7 @@ public:
     Formulario();
     Formulario(unsigned e,string des,string d);
     void setPrioridad(PRIORIDAD p);
+    PRIORIDAD getPrioridad();
     unsigned getEdad();
     void setEdad(unsigned e);
     string getDescripcion();

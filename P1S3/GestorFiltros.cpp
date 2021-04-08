@@ -7,7 +7,7 @@
 GestorFiltros::GestorFiltros() {}
 
 GestorFiltros::GestorFiltros(Target t) {
-    target = t;
+    ministerioSanidad = t;
 }
 
 void GestorFiltros::setFormulario(Formulario f) {

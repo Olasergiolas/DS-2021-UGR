@@ -4,7 +4,7 @@
 
 #include "Formulario.h"
 
-Formulario(){}
+Formulario::Formulario(){}
 
 Formulario::Formulario(unsigned e,string des,string d){
     edad = e;
@@ -39,4 +39,8 @@ string Formulario::getDescripcion() {
 
 void Formulario::setDescripcion(string d) {
     descripcion = d;
+}
+
+PRIORIDAD Formulario::getPrioridad() {
+    return prioridad;
 }

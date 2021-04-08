@@ -11,16 +11,26 @@
 
 using namespace std;
 
+ struct Cita{       //De las 8.00 a las 14.00
+     string dni;
+     unsigned dia;
+     unsigned hora;
+ };
+
 class Target {
 private:
-    vector<Formulario> formularios_alta;  //Estos son los formularios desencriptado
+    vector<Formulario> formularios_alta;
     vector<Formulario> formularios_media;
     vector<Formulario> formularios_baja;
+    Cita cita;
 
     void descifrar(Formulario &formulario);
+    void setCita();
+    void mostrarFormulario(Formulario formulario);
 
 public:
     Target();
+    void despacharCitas();
     void recibirFormulario(Formulario &formulario);
 };
 

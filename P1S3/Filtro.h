@@ -9,7 +9,7 @@
 
 class Filtro {
 public:
-    virtual void procesar(Formulario &formulario);
+    virtual void procesar(Formulario &formulario){};
 };
 
 
