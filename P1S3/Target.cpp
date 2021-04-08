@@ -26,6 +26,9 @@ void Target::recibirFormulario(Formulario &formulario) {
         cout << "FORMULARIO : " << endl;
         mostrarFormulario(formulario);
     }
+    else{
+        addFormulario(formulario);
+    }
 
     //Para ahorrar recursos, el target asigna citas cada 5 formularios
     formularios_recibidos++;
@@ -55,43 +58,49 @@ void Target::descifrar(Formulario &formulario) {
     PRIORIDAD prioridad = formulario.getPrioridad();
     formulario_desencriptado.setPrioridad(prioridad);
 
-    switch (prioridad) {
-        case ALTA:
-            formularios_alta.push_back(formulario_desencriptado);
-            break;
-        case MEDIA:
-            formularios_media.push_back(formulario_desencriptado);
-            break;
-        case BAJA:
-            formularios_baja.push_back(formulario_desencriptado);
-            break;
-    }
+    addFormulario(formulario_desencriptado);
 
     formulario = formulario_desencriptado;
 }
 
+void Target::addFormulario(Formulario formulario){
+    PRIORIDAD prioridad = formulario.getPrioridad();
+
+    switch (prioridad) {
+        case ALTA:
+            formularios_alta.push_back(formulario);
+            break;
+        case MEDIA:
+            formularios_media.push_back(formulario);
+            break;
+        case BAJA:
+            formularios_baja.push_back(formulario);
+            break;
+    }
+}
+
 void Target::despacharCitas() {
-    cout << "Despachando citas..." << endl << endl;
+    cout << "\nDespachando citas..." << endl << endl;
 
     for(unsigned i = 0; i < formularios_alta.size(); ++i) {
         cita.dni = formularios_alta[i].getDNI();
         setCita();
         cout << "La persona con DNI " << cita.dni << " se le concede cita para PCR el dia "
-        << cita.dia << " a las " << cita.hora << endl;
+        << cita.dia << " a las " << cita.hora << " horas " << endl;
     }
 
     for(unsigned i = 0; i < formularios_media.size(); ++i) {
         cita.dni = formularios_media[i].getDNI();
         setCita();
         cout << "La persona con DNI " << cita.dni << " se le concede cita para PCR el dia "
-             << cita.dia << " a las " << cita.hora << endl;
+             << cita.dia << " a las " << cita.hora << " horas " << endl;
     }
 
     for(unsigned i = 0; i < formularios_baja.size(); ++i) {
         cita.dni = formularios_baja[i].getDNI();
         setCita();
         cout << "La persona con DNI " << cita.dni << " se le concede cita para PCR el dia "
-             << cita.dia << " a las " << cita.hora << endl;
+             << cita.dia << " a las " << cita.hora << " horas " << endl;
     }
 
     formularios_alta.clear();

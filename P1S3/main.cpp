@@ -18,6 +18,54 @@ int main() {
     gestorFiltros.addFiltros(f1);
     gestorFiltros.addFiltros(f2);
 
+    int opcion = -1;
+    bool opcion_correcta = false;
+    bool encriptacion;
+    cout << "<----------------------MENÚ------------------------>>" <<endl;
+    cout << "Introduzca una opción: " << endl;
+    cout << "1) Encriptado " << endl;
+    cout << "2) No encriptado " << endl;
+
+    while(!opcion_correcta){
+        cin >> opcion;
+        if(opcion == 1 || opcion == 2)
+            opcion_correcta = true;
+    }
+
+    switch (opcion) {
+        case 1:
+            encriptacion = true;
+            break;
+        case 2:
+            gestorFiltros.deleteFiltros(f2);
+            encriptacion = false;
+            break;
+
+    }
+    opcion = -1;
+    opcion_correcta = false;
+    bool prioridad;
+
+    cout << "Introduzca una opción: " << endl;
+    cout << "1) Con prioridad " << endl;
+    cout << "2) Sin prioridad " << endl;
+
+    while(!opcion_correcta){
+        cin >> opcion;
+        if(opcion == 1 || opcion == 2)
+            opcion_correcta = true;
+    }
+
+    switch (opcion) {
+        case 1:
+            prioridad = true;
+            break;
+        case 2:
+            gestorFiltros.deleteFiltros(f1);
+            prioridad = false;
+            break;
+    }
+
     Cliente cliente(gestorFiltros);
 
     vector<string> descripciones;
@@ -40,11 +88,12 @@ int main() {
     uniform_int_distribution<int> distr2(10, 120);
     uniform_int_distribution<int> distr3(0, 9);
 
-    for(unsigned i = 0; i < descripciones.size();++i){
+    unsigned num_formularios = 10;
+    for(unsigned i = 0; i < num_formularios;++i){
         formulario.setDNI(to_string(distr(gen)));
         formulario.setEdad(distr2(gen));
         formulario.setDescripcion(descripciones[distr3(gen)]);
-        formulario.setEncryptionStatus(false);
+        formulario.setEncryptionStatus(encriptacion);
 
         cliente.setFormulario(formulario);
         cliente.enviarFormulario();

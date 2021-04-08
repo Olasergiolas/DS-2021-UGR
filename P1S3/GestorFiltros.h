@@ -22,7 +22,6 @@ public:
     void deleteFiltros(Filtro* f);
     void procesarFormulario();
     void enviarFormulario();
-    Target* getTarget(){return &ministerioSanidad;};
 };
 
 

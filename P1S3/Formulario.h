@@ -17,6 +17,7 @@ private:
     PRIORIDAD prioridad;
     string dni;
     bool encriptado;
+    bool priority;
 public:
     Formulario();
     Formulario(unsigned e,string des,string d);

@@ -25,6 +25,7 @@ private:
     Cita cita;
     unsigned formularios_recibidos;
 
+    void addFormulario(Formulario formulario);
     void descifrar(Formulario &formulario);
     void setCita();
     void mostrarFormulario(Formulario formulario);

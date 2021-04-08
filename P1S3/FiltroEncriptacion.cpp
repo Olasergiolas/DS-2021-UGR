@@ -20,5 +20,4 @@ void FiltroEncriptacion::procesar(Formulario &formulario) {
     formulario.setDescripcion(descripcion);
     formulario.setDNI(dni);
     formulario.setEdad(edad);
-    formulario.setEncryptionStatus(true);
 }
