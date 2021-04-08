@@ -19,7 +19,7 @@ void CadenaFiltros::deleteFiltros(Filtro *f) {
 
     if (it != filtros.end()){
         filtros.erase(it);
-        std::cout << "El filtro ha sido borrado" << endl << endl;
+        std::cout << "\nEl filtro ha sido borrado" << endl << endl;
     }
 
 }

@@ -11,8 +11,6 @@ void FiltroEncriptacion::procesar(Formulario &formulario) {
     string descripcion = formulario.getDescripcion();
     string dni = formulario.getDNI();
 
-    edad = edad*2;
-
     for(unsigned i = 0; i < descripcion.length();++i)
         descripcion[i] += 2;
 

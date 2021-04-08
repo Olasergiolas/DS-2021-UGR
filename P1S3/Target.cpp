@@ -10,24 +10,28 @@ Target::Target() {
 }
 
 void Target::recibirFormulario(Formulario &formulario) {
+    bool estaEncriptado = formulario.getEncryptionStatus();
     cout << "Recibiendo formulario..." << endl << endl;
-    cout << "FORMULARIO ENCRIPTADO: " << endl;
+
+    if (estaEncriptado)
+        cout << "FORMULARIO ENCRIPTADO: " << endl;
+
     mostrarFormulario(formulario);
 
     cout << endl << endl;
 
-    if (formulario.getEncryptionStatus()) {}
+    if (estaEncriptado) {
         descifrar(formulario);
         cout << "FORMULARIO : " << endl;
         mostrarFormulario(formulario);
     }
+}
 
 void Target::descifrar(Formulario &formulario) {
     cout << "Descifrando formulario..." << endl << endl;
 
     Formulario formulario_desencriptado;
-
-    formulario_desencriptado.setEdad(formulario.getEdad()/2);
+    formulario_desencriptado.setEdad(formulario.getEdad());
 
     string aux = formulario.getDescripcion();
 
@@ -100,5 +104,18 @@ void Target::mostrarFormulario(Formulario formulario){
     cout << "DNI: " << formulario.getDNI() << endl;
     cout << "Edad: " << formulario.getEdad() << endl;
     cout << "Descripción: " << formulario.getDescripcion() << endl;
-    cout << "Prioridad: " << formulario.getPrioridad() << endl;
+
+    string prioridad = "";
+    switch (formulario.getPrioridad()) {
+        case ALTA:
+            prioridad = "ALTA";
+            break;
+        case MEDIA:
+            prioridad = "MEDIA";
+            break;
+        case BAJA:
+            prioridad = "BAJA";
+            break;
+    }
+    cout << "Prioridad: " << prioridad << endl;
 }

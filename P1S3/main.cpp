@@ -11,11 +11,8 @@ using namespace std;
 int main() {
     Target ministerio;
 
-    //FiltroEncriptacion f1;
-    //FiltroPrioridad f2;
-
-    FiltroEncriptacion* f1 = new FiltroEncriptacion();
-    FiltroPrioridad* f2 = new FiltroPrioridad();
+    FiltroEncriptacion* f2 = new FiltroEncriptacion();
+    FiltroPrioridad* f1 = new FiltroPrioridad();
 
     GestorFiltros gestorFiltros(ministerio);
 
@@ -26,7 +23,7 @@ int main() {
 
     vector<string> descripciones;
     descripciones.push_back("\nEstuve en contacto con mi familia gitana el otro día");
-    descripciones.push_back("\nEstoy to el día echando mocos por la gargata");
+   /* descripciones.push_back("\nEstoy to el día echando mocos por la gargata");
     descripciones.push_back("\nMi novio lo ha pillao, el otro día estuvimos juntos");
     descripciones.push_back("\nMe contagié en el programa de Juan y Medio conociendo el amor");
     descripciones.push_back("\nMe duele la garganta");
@@ -34,7 +31,7 @@ int main() {
     descripciones.push_back("\nHe vuelto a estar en contacto con mi familia gitana");
     descripciones.push_back("\nMe ha salido un hongo en el pie");
     descripciones.push_back("\nLa Kylie Jenner dice de hacerselo todas las mañanas");
-    descripciones.push_back("\nEstoy harta de escribir");
+    descripciones.push_back("\nEstoy harta de escribir");*/
 
 
     Formulario formulario;
@@ -48,12 +45,14 @@ int main() {
         formulario.setDNI(to_string(distr(gen)));
         formulario.setEdad(distr2(gen));
         formulario.setDescripcion(descripciones[distr3(gen)]);
+        formulario.setEncryptionStatus(false);
 
         cliente.setFormulario(formulario);
         cliente.enviarFormulario();
     }
+    cout << endl << endl;
 
-   // ministerio.despacharCitas();
+   gestorFiltros.getTarget()->despacharCitas();
 
     return 0;
 }

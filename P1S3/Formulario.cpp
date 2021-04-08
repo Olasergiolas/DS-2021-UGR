@@ -4,7 +4,10 @@
 
 #include "Formulario.h"
 
-Formulario::Formulario(){}
+Formulario::Formulario(){
+    prioridad = BAJA;
+    encriptado = false;
+}
 
 Formulario::Formulario(unsigned e,string des,string d){
     edad = e;
