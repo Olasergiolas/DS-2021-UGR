@@ -90,5 +90,7 @@ public class main {
             cliente.setFormulario(formulario);
             cliente.enviarFormulario();
         }
+
+        ministerio.cerrarRegistro();
     }
 }

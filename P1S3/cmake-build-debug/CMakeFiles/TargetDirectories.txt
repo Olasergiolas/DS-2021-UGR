@@ -1,3 +1,3 @@
-/home/ines/CLionProjects/DSP1-S3/cmake-build-debug/CMakeFiles/edit_cache.dir
-/home/ines/CLionProjects/DSP1-S3/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-/home/ines/CLionProjects/DSP1-S3/cmake-build-debug/CMakeFiles/DSP1_S3.dir
+/home/sergiogarcia/Github/DS-2021-UGR/P1S3/cmake-build-debug/CMakeFiles/edit_cache.dir
+/home/sergiogarcia/Github/DS-2021-UGR/P1S3/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/home/sergiogarcia/Github/DS-2021-UGR/P1S3/cmake-build-debug/CMakeFiles/DSP1_S3.dir

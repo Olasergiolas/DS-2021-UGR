@@ -4,15 +4,15 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/ines/CLionProjects/DSP1-S3/CadenaFiltros.cpp" "/home/ines/CLionProjects/DSP1-S3/cmake-build-debug/CMakeFiles/DSP1_S3.dir/CadenaFiltros.cpp.o"
-  "/home/ines/CLionProjects/DSP1-S3/Cliente.cpp" "/home/ines/CLionProjects/DSP1-S3/cmake-build-debug/CMakeFiles/DSP1_S3.dir/Cliente.cpp.o"
-  "/home/ines/CLionProjects/DSP1-S3/Filtro.cpp" "/home/ines/CLionProjects/DSP1-S3/cmake-build-debug/CMakeFiles/DSP1_S3.dir/Filtro.cpp.o"
-  "/home/ines/CLionProjects/DSP1-S3/FiltroEncriptacion.cpp" "/home/ines/CLionProjects/DSP1-S3/cmake-build-debug/CMakeFiles/DSP1_S3.dir/FiltroEncriptacion.cpp.o"
-  "/home/ines/CLionProjects/DSP1-S3/FiltroPrioridad.cpp" "/home/ines/CLionProjects/DSP1-S3/cmake-build-debug/CMakeFiles/DSP1_S3.dir/FiltroPrioridad.cpp.o"
-  "/home/ines/CLionProjects/DSP1-S3/Formulario.cpp" "/home/ines/CLionProjects/DSP1-S3/cmake-build-debug/CMakeFiles/DSP1_S3.dir/Formulario.cpp.o"
-  "/home/ines/CLionProjects/DSP1-S3/GestorFiltros.cpp" "/home/ines/CLionProjects/DSP1-S3/cmake-build-debug/CMakeFiles/DSP1_S3.dir/GestorFiltros.cpp.o"
-  "/home/ines/CLionProjects/DSP1-S3/Target.cpp" "/home/ines/CLionProjects/DSP1-S3/cmake-build-debug/CMakeFiles/DSP1_S3.dir/Target.cpp.o"
-  "/home/ines/CLionProjects/DSP1-S3/main.cpp" "/home/ines/CLionProjects/DSP1-S3/cmake-build-debug/CMakeFiles/DSP1_S3.dir/main.cpp.o"
+  "/home/sergiogarcia/Github/DS-2021-UGR/P1S3/CadenaFiltros.cpp" "/home/sergiogarcia/Github/DS-2021-UGR/P1S3/cmake-build-debug/CMakeFiles/DSP1_S3.dir/CadenaFiltros.cpp.o"
+  "/home/sergiogarcia/Github/DS-2021-UGR/P1S3/Cliente.cpp" "/home/sergiogarcia/Github/DS-2021-UGR/P1S3/cmake-build-debug/CMakeFiles/DSP1_S3.dir/Cliente.cpp.o"
+  "/home/sergiogarcia/Github/DS-2021-UGR/P1S3/Filtro.cpp" "/home/sergiogarcia/Github/DS-2021-UGR/P1S3/cmake-build-debug/CMakeFiles/DSP1_S3.dir/Filtro.cpp.o"
+  "/home/sergiogarcia/Github/DS-2021-UGR/P1S3/FiltroEncriptacion.cpp" "/home/sergiogarcia/Github/DS-2021-UGR/P1S3/cmake-build-debug/CMakeFiles/DSP1_S3.dir/FiltroEncriptacion.cpp.o"
+  "/home/sergiogarcia/Github/DS-2021-UGR/P1S3/FiltroPrioridad.cpp" "/home/sergiogarcia/Github/DS-2021-UGR/P1S3/cmake-build-debug/CMakeFiles/DSP1_S3.dir/FiltroPrioridad.cpp.o"
+  "/home/sergiogarcia/Github/DS-2021-UGR/P1S3/Formulario.cpp" "/home/sergiogarcia/Github/DS-2021-UGR/P1S3/cmake-build-debug/CMakeFiles/DSP1_S3.dir/Formulario.cpp.o"
+  "/home/sergiogarcia/Github/DS-2021-UGR/P1S3/GestorFiltros.cpp" "/home/sergiogarcia/Github/DS-2021-UGR/P1S3/cmake-build-debug/CMakeFiles/DSP1_S3.dir/GestorFiltros.cpp.o"
+  "/home/sergiogarcia/Github/DS-2021-UGR/P1S3/Target.cpp" "/home/sergiogarcia/Github/DS-2021-UGR/P1S3/cmake-build-debug/CMakeFiles/DSP1_S3.dir/Target.cpp.o"
+  "/home/sergiogarcia/Github/DS-2021-UGR/P1S3/main.cpp" "/home/sergiogarcia/Github/DS-2021-UGR/P1S3/cmake-build-debug/CMakeFiles/DSP1_S3.dir/main.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

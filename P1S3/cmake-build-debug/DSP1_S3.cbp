@@ -8,132 +8,130 @@
 		<Option virtualFolders="CMake Files\;"/>
 		<Build>
 			<Target title="all">
-				<Option working_dir="/home/ines/CLionProjects/DSP1-S3/cmake-build-debug"/>
+				<Option working_dir="/home/sergiogarcia/Github/DS-2021-UGR/P1S3/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j8 -f &quot;/home/ines/CLionProjects/DSP1-S3/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
-					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/ines/CLionProjects/DSP1-S3/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j8 -f &quot;/home/ines/CLionProjects/DSP1-S3/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j8 -f &quot;/home/ines/CLionProjects/DSP1-S3/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/gmake -j12 -f &quot;/home/sergiogarcia/Github/DS-2021-UGR/P1S3/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/gmake -j12 -f &quot;/home/sergiogarcia/Github/DS-2021-UGR/P1S3/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j12 -f &quot;/home/sergiogarcia/Github/DS-2021-UGR/P1S3/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j12 -f &quot;/home/sergiogarcia/Github/DS-2021-UGR/P1S3/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="edit_cache">
-				<Option working_dir="/home/ines/CLionProjects/DSP1-S3/cmake-build-debug"/>
+				<Option working_dir="/home/sergiogarcia/Github/DS-2021-UGR/P1S3/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j8 -f &quot;/home/ines/CLionProjects/DSP1-S3/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
-					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/ines/CLionProjects/DSP1-S3/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j8 -f &quot;/home/ines/CLionProjects/DSP1-S3/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j8 -f &quot;/home/ines/CLionProjects/DSP1-S3/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/gmake -j12 -f &quot;/home/sergiogarcia/Github/DS-2021-UGR/P1S3/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/gmake -j12 -f &quot;/home/sergiogarcia/Github/DS-2021-UGR/P1S3/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j12 -f &quot;/home/sergiogarcia/Github/DS-2021-UGR/P1S3/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j12 -f &quot;/home/sergiogarcia/Github/DS-2021-UGR/P1S3/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="rebuild_cache">
-				<Option working_dir="/home/ines/CLionProjects/DSP1-S3/cmake-build-debug"/>
+				<Option working_dir="/home/sergiogarcia/Github/DS-2021-UGR/P1S3/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j8 -f &quot;/home/ines/CLionProjects/DSP1-S3/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
-					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/ines/CLionProjects/DSP1-S3/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j8 -f &quot;/home/ines/CLionProjects/DSP1-S3/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j8 -f &quot;/home/ines/CLionProjects/DSP1-S3/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/gmake -j12 -f &quot;/home/sergiogarcia/Github/DS-2021-UGR/P1S3/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/gmake -j12 -f &quot;/home/sergiogarcia/Github/DS-2021-UGR/P1S3/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j12 -f &quot;/home/sergiogarcia/Github/DS-2021-UGR/P1S3/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j12 -f &quot;/home/sergiogarcia/Github/DS-2021-UGR/P1S3/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="DSP1_S3">
-				<Option output="/home/ines/CLionProjects/DSP1-S3/cmake-build-debug/DSP1_S3" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/home/ines/CLionProjects/DSP1-S3/cmake-build-debug"/>
+				<Option output="/home/sergiogarcia/Github/DS-2021-UGR/P1S3/cmake-build-debug/DSP1_S3" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/sergiogarcia/Github/DS-2021-UGR/P1S3/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
 				<Compiler>
-					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/10.2.0/../../../../include/c++/10.2.0"/>
-					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/10.2.0/../../../../include/c++/10.2.0/x86_64-pc-linux-gnu"/>
-					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/10.2.0/../../../../include/c++/10.2.0/backward"/>
-					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/10.2.0/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/10/../../../../include/c++/10"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/10/../../../../include/c++/10/x86_64-redhat-linux"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/10/../../../../include/c++/10/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/10/include"/>
 					<Add directory="/usr/local/include"/>
-					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/10.2.0/include-fixed"/>
 					<Add directory="/usr/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j8 -f &quot;/home/ines/CLionProjects/DSP1-S3/cmake-build-debug/Makefile&quot;  VERBOSE=1 DSP1_S3"/>
-					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/ines/CLionProjects/DSP1-S3/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j8 -f &quot;/home/ines/CLionProjects/DSP1-S3/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j8 -f &quot;/home/ines/CLionProjects/DSP1-S3/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/gmake -j12 -f &quot;/home/sergiogarcia/Github/DS-2021-UGR/P1S3/cmake-build-debug/Makefile&quot;  VERBOSE=1 DSP1_S3"/>
+					<CompileFile command="/usr/bin/gmake -j12 -f &quot;/home/sergiogarcia/Github/DS-2021-UGR/P1S3/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j12 -f &quot;/home/sergiogarcia/Github/DS-2021-UGR/P1S3/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j12 -f &quot;/home/sergiogarcia/Github/DS-2021-UGR/P1S3/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="DSP1_S3/fast">
-				<Option output="/home/ines/CLionProjects/DSP1-S3/cmake-build-debug/DSP1_S3" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/home/ines/CLionProjects/DSP1-S3/cmake-build-debug"/>
+				<Option output="/home/sergiogarcia/Github/DS-2021-UGR/P1S3/cmake-build-debug/DSP1_S3" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/sergiogarcia/Github/DS-2021-UGR/P1S3/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
 				<Compiler>
-					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/10.2.0/../../../../include/c++/10.2.0"/>
-					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/10.2.0/../../../../include/c++/10.2.0/x86_64-pc-linux-gnu"/>
-					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/10.2.0/../../../../include/c++/10.2.0/backward"/>
-					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/10.2.0/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/10/../../../../include/c++/10"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/10/../../../../include/c++/10/x86_64-redhat-linux"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/10/../../../../include/c++/10/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/10/include"/>
 					<Add directory="/usr/local/include"/>
-					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/10.2.0/include-fixed"/>
 					<Add directory="/usr/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j8 -f &quot;/home/ines/CLionProjects/DSP1-S3/cmake-build-debug/Makefile&quot;  VERBOSE=1 DSP1_S3/fast"/>
-					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/ines/CLionProjects/DSP1-S3/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j8 -f &quot;/home/ines/CLionProjects/DSP1-S3/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j8 -f &quot;/home/ines/CLionProjects/DSP1-S3/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/gmake -j12 -f &quot;/home/sergiogarcia/Github/DS-2021-UGR/P1S3/cmake-build-debug/Makefile&quot;  VERBOSE=1 DSP1_S3/fast"/>
+					<CompileFile command="/usr/bin/gmake -j12 -f &quot;/home/sergiogarcia/Github/DS-2021-UGR/P1S3/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j12 -f &quot;/home/sergiogarcia/Github/DS-2021-UGR/P1S3/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j12 -f &quot;/home/sergiogarcia/Github/DS-2021-UGR/P1S3/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="/home/ines/CLionProjects/DSP1-S3/CadenaFiltros.cpp">
+		<Unit filename="/home/sergiogarcia/Github/DS-2021-UGR/P1S3/CadenaFiltros.cpp">
 			<Option target="DSP1_S3"/>
 		</Unit>
-		<Unit filename="/home/ines/CLionProjects/DSP1-S3/CadenaFiltros.h">
+		<Unit filename="/home/sergiogarcia/Github/DS-2021-UGR/P1S3/CadenaFiltros.h">
 			<Option target="DSP1_S3"/>
 		</Unit>
-		<Unit filename="/home/ines/CLionProjects/DSP1-S3/Cliente.cpp">
+		<Unit filename="/home/sergiogarcia/Github/DS-2021-UGR/P1S3/Cliente.cpp">
 			<Option target="DSP1_S3"/>
 		</Unit>
-		<Unit filename="/home/ines/CLionProjects/DSP1-S3/Cliente.h">
+		<Unit filename="/home/sergiogarcia/Github/DS-2021-UGR/P1S3/Cliente.h">
 			<Option target="DSP1_S3"/>
 		</Unit>
-		<Unit filename="/home/ines/CLionProjects/DSP1-S3/Filtro.cpp">
+		<Unit filename="/home/sergiogarcia/Github/DS-2021-UGR/P1S3/Filtro.cpp">
 			<Option target="DSP1_S3"/>
 		</Unit>
-		<Unit filename="/home/ines/CLionProjects/DSP1-S3/Filtro.h">
+		<Unit filename="/home/sergiogarcia/Github/DS-2021-UGR/P1S3/Filtro.h">
 			<Option target="DSP1_S3"/>
 		</Unit>
-		<Unit filename="/home/ines/CLionProjects/DSP1-S3/FiltroEncriptacion.cpp">
+		<Unit filename="/home/sergiogarcia/Github/DS-2021-UGR/P1S3/FiltroEncriptacion.cpp">
 			<Option target="DSP1_S3"/>
 		</Unit>
-		<Unit filename="/home/ines/CLionProjects/DSP1-S3/FiltroEncriptacion.h">
+		<Unit filename="/home/sergiogarcia/Github/DS-2021-UGR/P1S3/FiltroEncriptacion.h">
 			<Option target="DSP1_S3"/>
 		</Unit>
-		<Unit filename="/home/ines/CLionProjects/DSP1-S3/FiltroPrioridad.cpp">
+		<Unit filename="/home/sergiogarcia/Github/DS-2021-UGR/P1S3/FiltroPrioridad.cpp">
 			<Option target="DSP1_S3"/>
 		</Unit>
-		<Unit filename="/home/ines/CLionProjects/DSP1-S3/FiltroPrioridad.h">
+		<Unit filename="/home/sergiogarcia/Github/DS-2021-UGR/P1S3/FiltroPrioridad.h">
 			<Option target="DSP1_S3"/>
 		</Unit>
-		<Unit filename="/home/ines/CLionProjects/DSP1-S3/Formulario.cpp">
+		<Unit filename="/home/sergiogarcia/Github/DS-2021-UGR/P1S3/Formulario.cpp">
 			<Option target="DSP1_S3"/>
 		</Unit>
-		<Unit filename="/home/ines/CLionProjects/DSP1-S3/Formulario.h">
+		<Unit filename="/home/sergiogarcia/Github/DS-2021-UGR/P1S3/Formulario.h">
 			<Option target="DSP1_S3"/>
 		</Unit>
-		<Unit filename="/home/ines/CLionProjects/DSP1-S3/GestorFiltros.cpp">
+		<Unit filename="/home/sergiogarcia/Github/DS-2021-UGR/P1S3/GestorFiltros.cpp">
 			<Option target="DSP1_S3"/>
 		</Unit>
-		<Unit filename="/home/ines/CLionProjects/DSP1-S3/GestorFiltros.h">
+		<Unit filename="/home/sergiogarcia/Github/DS-2021-UGR/P1S3/GestorFiltros.h">
 			<Option target="DSP1_S3"/>
 		</Unit>
-		<Unit filename="/home/ines/CLionProjects/DSP1-S3/Target.cpp">
+		<Unit filename="/home/sergiogarcia/Github/DS-2021-UGR/P1S3/Target.cpp">
 			<Option target="DSP1_S3"/>
 		</Unit>
-		<Unit filename="/home/ines/CLionProjects/DSP1-S3/Target.h">
+		<Unit filename="/home/sergiogarcia/Github/DS-2021-UGR/P1S3/Target.h">
 			<Option target="DSP1_S3"/>
 		</Unit>
-		<Unit filename="/home/ines/CLionProjects/DSP1-S3/main.cpp">
+		<Unit filename="/home/sergiogarcia/Github/DS-2021-UGR/P1S3/main.cpp">
 			<Option target="DSP1_S3"/>
 		</Unit>
-		<Unit filename="/home/ines/CLionProjects/DSP1-S3/CMakeLists.txt">
+		<Unit filename="/home/sergiogarcia/Github/DS-2021-UGR/P1S3/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>
 	</Project>

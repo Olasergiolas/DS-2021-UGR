@@ -1,4 +1,7 @@
+import java.io.FileWriter;
+import java.io.IOException;
 import  java.util.ArrayList;
+import java.io.File;
 
 public class Target {
     ArrayList<Formulario> formularios_alta;
@@ -6,6 +9,8 @@ public class Target {
     ArrayList<Formulario> formularios_baja;
     Cita cita;
     int formularios_recibidos;
+
+    FileWriter escritorRegistroCitas;
 
     public Target(){
         formularios_alta = new ArrayList<Formulario>();
@@ -15,6 +20,7 @@ public class Target {
         formularios_recibidos = 0;
 
         cita = new Cita(31, 8);
+        generarRegistroCitas();
     }
 
     private void descifrar(Formulario formulario){
@@ -73,30 +79,72 @@ public class Target {
     public void despacharCitas(){
         System.out.println("\nDespachando citas...\n\n");
 
-        for(int i = 0; i < formularios_alta.size(); i++){
+        for(int i = 0; i < formularios_alta.size(); i++) {
             cita.dni = formularios_alta.get(i).getDni();
-            setCita();
-            System.out.println("La persona con DNI " + cita.dni + " se le concede cita para PCR el día "
-            + cita.dia + " a las " + cita.hora + " horas\n" );
+            darCita();
         }
 
-        for(int i = 0; i < formularios_media.size(); i++){
+
+        for(int i = 0; i < formularios_media.size(); i++) {
             cita.dni = formularios_media.get(i).getDni();
-            setCita();
-            System.out.println("La persona con DNI " + cita.dni + " se le concede cita para PCR el día "
-                    + cita.dia + " a las " + cita.hora + " horas\n" );
+            darCita();
         }
 
-        for(int i = 0; i < formularios_baja.size(); i++){
+
+        for(int i = 0; i < formularios_baja.size(); i++) {
             cita.dni = formularios_baja.get(i).getDni();
-            setCita();
-            System.out.println("La persona con DNI " + cita.dni + " se le concede cita para PCR el día "
-                    + cita.dia + " a las " + cita.hora + " horas\n" );
+            darCita();
         }
 
         formularios_alta.clear();
         formularios_media.clear();
         formularios_baja.clear();
+    }
+
+    public void darCita(){
+        setCita();
+        escribirRegistroCitas();
+        System.out.println("La persona con DNI " + cita.dni + " se le concede cita para PCR el día "
+                + cita.dia + " a las " + cita.hora + " horas\n" );
+    }
+
+    //Crea el archivo .csv que almacenará las citas una vez despachadas
+    public void generarRegistroCitas(){
+        try {
+            File registro = new File("registroCitas.csv");
+            if (registro.createNewFile()) {
+                System.out.println("Registro de citas creado");
+            } else
+                System.out.println("Registro de citas ya existente");
+        } catch (IOException e){
+            System.out.println("Error en la creación del registro de archivos");
+            e.printStackTrace();
+        }
+
+        //Escribimos las columnas en el archivo
+        try {
+            escritorRegistroCitas = new FileWriter("registroCitas.csv");
+            escritorRegistroCitas.write("DNI, Dia, Hora\n");
+            escritorRegistroCitas.flush();
+            System.out.println("Registro de citas inicializado");
+        } catch (IOException e) {
+            System.out.println("Ha ocurrido un error al inicializar el registo de citas");
+            e.printStackTrace();
+        }
+    }
+
+    //Escribe en el archivo "registroCitas.csv
+    public void escribirRegistroCitas(){
+        try{
+            //FileWriter archivo = new FileWriter("registroCitas.csv");
+            escritorRegistroCitas.write(cita.dni + ", " + cita.dia + ", " + cita.hora + "\n");
+            escritorRegistroCitas.flush();
+            //escritorRegistroCitas.close();
+            }catch(IOException e){
+                System.out.println("Error al añadir la cita al registro");
+                e.printStackTrace();
+            }
+
     }
 
     public void addFormulario(Formulario formulario){
@@ -140,5 +188,13 @@ public class Target {
            formularios_recibidos = 0;
            despacharCitas();
        }
+    }
+
+    public void cerrarRegistro(){
+        try {
+            escritorRegistroCitas.close();
+        }catch (IOException e){
+            System.out.println("Error al cerrar el registro de citas");
+        }
     }
 }
