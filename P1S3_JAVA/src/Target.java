@@ -25,6 +25,7 @@ public class Target {
         formulario_desencriptado = new Formulario();
 
         formularios_recibidos = 0;
+        cita_texto = "";
 
         cita = new Cita(31, 8);
         generarRegistroCitas();
@@ -98,17 +99,11 @@ public class Target {
     public void darCita(){
         setCita();
         escribirRegistroCitas();
-        citaToString();
+        cita_texto += "La persona con DNI " + cita.dni + " se le concede cita para PCR el día "
+                + cita.dia + " a las " + cita.hora + " horas\n";
     }
     
     public String citaToString(){
-        
-        if(cita.dni != null)
-        cita_texto += "La persona con DNI " + cita.dni + " se le concede cita para PCR el día "
-                + cita.dia + " a las " + cita.hora + " horas\n";
-        else
-            cita_texto = "";
-        
         return cita_texto;
     }
 
@@ -168,7 +163,6 @@ public class Target {
     }
 
     public void recibirFormulario(Formulario formulario){
-       cita_texto = "";
        boolean estaEncriptado = formulario.getEncryptionStatus();
 
        if(estaEncriptado){

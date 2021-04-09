@@ -12,7 +12,6 @@ public class main {
 
         FiltroPrioridad f1 = new FiltroPrioridad();
         FiltroEncriptacion f2 = new FiltroEncriptacion();
-
         GestorFiltros gestorFiltros = new GestorFiltros(ministerio);
 
         Cliente cliente = new Cliente(gestorFiltros);
@@ -39,7 +38,6 @@ public class main {
         descripciones.add("Mi novio ha dado positivo en COVID-19 y convivo con él");
 
         Formulario formulario;
-        int num_formularios = 10;
         int edad;
         String dni, desc;
         while(!terminar){
@@ -78,7 +76,7 @@ public class main {
             ministerio_gui.setText();
             
             try{
-            Thread.sleep(2000); 
+            Thread.sleep(1000); 
             }
             catch(InterruptedException e){
                 System.out.println("Error");

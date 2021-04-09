@@ -28,8 +28,8 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
                       <Component id="encriptados" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="88" max="32767" attributes="0"/>
-                      <Component id="desencriptados" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="desencriptados" max="32767" attributes="0"/>
                   </Group>
                   <Component id="citas" max="32767" attributes="0"/>
               </Group>
@@ -43,13 +43,11 @@
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="encriptados" max="32767" attributes="0"/>
-                  <Group type="102" alignment="1" attributes="0">
-                      <EmptySpace min="0" pref="6" max="32767" attributes="0"/>
-                      <Component id="desencriptados" min="-2" max="-2" attributes="0"/>
-                  </Group>
+                  <Component id="desencriptados" max="32767" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="citas" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -80,7 +78,7 @@
                       <Component id="ledad_en" min="-2" max="-2" attributes="0"/>
                       <Component id="ldni_en" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace pref="131" max="32767" attributes="0"/>
+                  <EmptySpace pref="283" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
                       <Component id="dni_en" pref="173" max="32767" attributes="0"/>
                       <Component id="edad_en" alignment="0" max="32767" attributes="0"/>
@@ -116,7 +114,7 @@
                       <Component id="ldescr_en" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="descripcion_en" alignment="3" min="-2" pref="67" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace max="32767" attributes="0"/>
+                  <EmptySpace pref="106" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -200,7 +198,7 @@
                           </Group>
                       </Group>
                   </Group>
-                  <EmptySpace pref="93" max="32767" attributes="0"/>
+                  <EmptySpace pref="243" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
                       <Component id="dni_des" pref="149" max="32767" attributes="0"/>
                       <Component id="edad_des" alignment="0" max="32767" attributes="0"/>
@@ -236,7 +234,7 @@
                       <Component id="ldescripcion_des" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="descripcion_des" alignment="3" min="-2" pref="72" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace pref="95" max="32767" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -323,7 +321,8 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="jScrollPane1" pref="156" max="32767" attributes="0"/>
+                  <Component id="jScrollPane1" pref="144" max="32767" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
