@@ -15,4 +15,12 @@ public class Cliente {
     public void setFormulario(Formulario f){
         formulario = f;
     }
+    
+    public void deleteFiltros(Filtro f){
+        gestorFiltros.deleteFiltros(f);
+    }
+    
+    public void addFiltros(Filtro f){
+        gestorFiltros.addFiltros(f);
+    }
 }

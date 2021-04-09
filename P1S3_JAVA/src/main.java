@@ -4,16 +4,20 @@ import java.util.concurrent.ThreadLocalRandom;
 
 public class main {
     public static void main(String[] args){
+        boolean encryptionStatus = false;
+        boolean prioridadStatus = false;
+        boolean terminar = false;
+        
         Target ministerio = new Target();
 
         FiltroPrioridad f1 = new FiltroPrioridad();
         FiltroEncriptacion f2 = new FiltroEncriptacion();
 
         GestorFiltros gestorFiltros = new GestorFiltros(ministerio);
-        gestorFiltros.addFiltros(f1);
-        gestorFiltros.addFiltros(f2);
+        //gestorFiltros.addFiltros(f1);
+        //gestorFiltros.addFiltros(f2);
 
-        int opcion = -1;
+        /*int opcion = -1;
         boolean opcion_correcta = false;
         boolean encriptacion = true;
         System.out.println("<----------------------MENÚ------------------------>>");
@@ -59,9 +63,17 @@ public class main {
                 gestorFiltros.deleteFiltros(f1);
                 prioridad = false;
                 break;
-        }
+        }*/
 
         Cliente cliente = new Cliente(gestorFiltros);
+        
+        
+        
+        Cliente_GUI cliente_gui = new Cliente_GUI();
+        cliente_gui.setVisible(true);
+        cliente_gui.setCliente(cliente);
+        
+        
 
         ArrayList<String> descripciones = new ArrayList<String>();
         descripciones.add("El hermano de mi novio dio positivo ayer y antes de ayer estuve con él");
@@ -79,13 +91,35 @@ public class main {
         int num_formularios = 10;
         int edad;
         String dni, desc;
-        for (int i = 0; i < num_formularios; ++i){
+        while(!terminar){
+            terminar = cliente_gui.getTerminar();
+        
+            if (cliente_gui.getEncryptionStatus() != encryptionStatus){
+                encryptionStatus = cliente_gui.getEncryptionStatus();
+                
+                if (encryptionStatus)
+                    cliente.addFiltros(f2);
+                
+                else
+                    cliente.deleteFiltros(f2);
+            }
+            
+            if (cliente_gui.getPrioridadStatus() != prioridadStatus){
+                prioridadStatus = cliente_gui.getPrioridadStatus();
+                
+                if (prioridadStatus)
+                    cliente.addFiltros(f1);
+                
+                else
+                    cliente.deleteFiltros(f1);
+            }
+            
             dni = Integer.toString(ThreadLocalRandom.current().nextInt(10000000, 99999999+1));
             edad = ThreadLocalRandom.current().nextInt(10, 120+1);
             desc = descripciones.get(ThreadLocalRandom.current().nextInt(0, 9+1));
 
             formulario = new Formulario(edad, desc, dni);
-            formulario.setEncriptado(encriptacion);
+            formulario.setEncriptado(encryptionStatus);
 
             cliente.setFormulario(formulario);
             cliente.enviarFormulario();
