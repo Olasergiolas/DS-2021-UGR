@@ -18,6 +18,15 @@ public class Formulario {
         encriptado = false;
 
     }
+    
+    public Formulario(int e, String des, String d, boolean encr, Prioridad p){
+        edad = e;
+        descripcion = des;
+        dni = d;
+        prioridad = p;
+        encriptado = encr;
+
+    }
 
     public int getEdad() {
         return edad;

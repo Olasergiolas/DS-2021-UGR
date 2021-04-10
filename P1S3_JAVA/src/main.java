@@ -14,67 +14,18 @@ public class main {
         FiltroEncriptacion f2 = new FiltroEncriptacion();
 
         GestorFiltros gestorFiltros = new GestorFiltros(ministerio);
-        //gestorFiltros.addFiltros(f1);
-        //gestorFiltros.addFiltros(f2);
-
-        /*int opcion = -1;
-        boolean opcion_correcta = false;
-        boolean encriptacion = true;
-        System.out.println("<----------------------MENÚ------------------------>>");
-        System.out.println("Introduzca una opción: ");
-        System.out.println("1) Encriptado ");
-        System.out.println("2) No encriptado ");
-
-        Scanner scan = new Scanner(System.in);
-        while(!opcion_correcta){
-            opcion = Integer.parseInt(scan.nextLine());
-            if(opcion == 1 || opcion == 2)
-                opcion_correcta = true;
-        }
-
-        switch (opcion) {
-            case 1:
-                encriptacion = true;
-                break;
-            case 2:
-                gestorFiltros.deleteFiltros(f2);
-                encriptacion = false;
-                break;
-        }
-        opcion = -1;
-        opcion_correcta = false;
-        boolean prioridad;
-
-        System.out.println("Introduzca una opción: ");
-        System.out.println("1) Con prioridad ");
-        System.out.println("2) Sin prioridad ");
-
-        while(!opcion_correcta){
-            opcion = Integer.parseInt(scan.nextLine());
-            if(opcion == 1 || opcion == 2)
-                opcion_correcta = true;
-        }
-
-        switch (opcion) {
-            case 1:
-                prioridad = true;
-                break;
-            case 2:
-                gestorFiltros.deleteFiltros(f1);
-                prioridad = false;
-                break;
-        }*/
 
         Cliente cliente = new Cliente(gestorFiltros);
-        
-        
-        
+        /********************************************************************************/
+        //CREACIÓN DE LAS INTERFACES
         Cliente_GUI cliente_gui = new Cliente_GUI();
         cliente_gui.setVisible(true);
         cliente_gui.setCliente(cliente);
         
-        
-
+        ministerio_GUI ministerio_gui = new ministerio_GUI();
+        ministerio_gui.setVisible(true);
+        ministerio_gui.setTarget(ministerio);
+         /********************************************************************************/
         ArrayList<String> descripciones = new ArrayList<String>();
         descripciones.add("El hermano de mi novio dio positivo ayer y antes de ayer estuve con él");
         descripciones.add("Una compañera de trabajo ha dado positivo");
@@ -92,6 +43,7 @@ public class main {
         int edad;
         String dni, desc;
         while(!terminar){
+            
             terminar = cliente_gui.getTerminar();
         
             if (cliente_gui.getEncryptionStatus() != encryptionStatus){
@@ -123,6 +75,15 @@ public class main {
 
             cliente.setFormulario(formulario);
             cliente.enviarFormulario();
+            ministerio_gui.setText();
+            
+            try{
+            Thread.sleep(2000); 
+            }
+            catch(InterruptedException e){
+                System.out.println("Error");
+                e.printStackTrace();
+            }
         }
 
         ministerio.cerrarRegistro();

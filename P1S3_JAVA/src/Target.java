@@ -8,7 +8,11 @@ public class Target {
     ArrayList<Formulario> formularios_media;
     ArrayList<Formulario> formularios_baja;
     Cita cita;
+    String cita_texto;
     int formularios_recibidos;
+    
+    Formulario formulario_encriptado;
+    Formulario formulario_desencriptado;
 
     FileWriter escritorRegistroCitas;
 
@@ -16,15 +20,25 @@ public class Target {
         formularios_alta = new ArrayList<Formulario>();
         formularios_media = new ArrayList<Formulario>();
         formularios_baja = new ArrayList<Formulario>();
+        
+        formulario_encriptado = new Formulario();
+        formulario_desencriptado = new Formulario();
 
         formularios_recibidos = 0;
 
         cita = new Cita(31, 8);
         generarRegistroCitas();
     }
+    
+    public Formulario getFormularioEncriptado(){
+        return formulario_encriptado;
+    }
+    
+    public Formulario getFormularioDesencriptado(){
+        return formulario_desencriptado;
+    }
 
     private void descifrar(Formulario formulario){
-        System.out.println("Descrifrando formulario...");
 
         String desc = formulario.getDescripcion();
         String dni = formulario.getDni();
@@ -41,6 +55,7 @@ public class Target {
 
         formulario.setDni(dni);
         formulario.setDescripcion(desc);
+        formulario_desencriptado = formulario;
     }
 
     private void setCita(){
@@ -56,28 +71,7 @@ public class Target {
         }
     }
 
-    private void mostrarFormulario(Formulario formulario){
-        System.out.println("DNI: " + formulario.getDni());
-        System.out.println("Edad: " + formulario.getEdad());
-        System.out.println("Descripción: " + formulario.getDescripcion());
-
-        String prioridad = "";
-        switch (formulario.getPrioridad()){
-            case ALTA:
-                prioridad = "ALTA";
-                break;
-            case MEDIA:
-                prioridad = "MEDIA";
-                break;
-            case BAJA:
-                prioridad = "BAJA";
-                break;
-        }
-        System.out.println("Prioridad: " + prioridad);
-    }
-
     public void despacharCitas(){
-        System.out.println("\nDespachando citas...\n\n");
 
         for(int i = 0; i < formularios_alta.size(); i++) {
             cita.dni = formularios_alta.get(i).getDni();
@@ -104,8 +98,18 @@ public class Target {
     public void darCita(){
         setCita();
         escribirRegistroCitas();
-        System.out.println("La persona con DNI " + cita.dni + " se le concede cita para PCR el día "
-                + cita.dia + " a las " + cita.hora + " horas\n" );
+        citaToString();
+    }
+    
+    public String citaToString(){
+        
+        if(cita.dni != null)
+        cita_texto += "La persona con DNI " + cita.dni + " se le concede cita para PCR el día "
+                + cita.dia + " a las " + cita.hora + " horas\n";
+        else
+            cita_texto = "";
+        
+        return cita_texto;
     }
 
     //Crea el archivo .csv que almacenará las citas una vez despachadas
@@ -164,21 +168,20 @@ public class Target {
     }
 
     public void recibirFormulario(Formulario formulario){
+       cita_texto = "";
        boolean estaEncriptado = formulario.getEncryptionStatus();
-       System.out.println("Recibiendo formulario...\n");
-
-       if(estaEncriptado)
-           System.out.println("FORMULARIO ENCRIPTADO: \n");
-
-       mostrarFormulario(formulario);
 
        if(estaEncriptado){
+           formulario_encriptado = new Formulario(formulario.getEdad(),
+           formulario.getDescripcion(),formulario.getDni(),formulario.getEncryptionStatus(),
+           formulario.getPrioridad());
+           
            descifrar(formulario);
-           System.out.println("FORMULARIO: \n\n");
            addFormulario(formulario);
-           mostrarFormulario(formulario);
        }
        else{
+           formulario_encriptado = formulario;
+           formulario_desencriptado = formulario;
            addFormulario(formulario);
        }
 
