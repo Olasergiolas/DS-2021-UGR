@@ -2,9 +2,6 @@ import 'package:flutter/material.dart';
 import 'recomendacion.dart';
 import 'inicio.dart';
 
-Function test(){
-}
-
 class FormularioContacto extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
