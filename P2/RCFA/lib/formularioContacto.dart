@@ -1,26 +1,21 @@
 import 'package:flutter/material.dart';
 import 'recomendacion.dart';
-
-void main() => runApp(MyApp());
+import 'inicio.dart';
 
 Function test(){
 }
 
-class MyApp extends StatelessWidget {
+class FormularioContacto extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final appTitle = 'Formulario de contacto positivo';
-    return MaterialApp(
-      theme: new ThemeData(scaffoldBackgroundColor: const Color(0xFFEFEFEF)),
-      title: appTitle,
-      home: Scaffold(
+    return Scaffold(
         appBar: AppBar(
           title: Text(appTitle),
           backgroundColor: Color.fromRGBO(155, 229, 170, 1),
         ),
         body: MyCustomForm(),
-      ),
-    );
+      );
   }
 }
 
@@ -119,10 +114,11 @@ class MyCustomFormState extends State<MyCustomForm> {
         Padding(
           padding: const EdgeInsets.fromLTRB(9, 30, 0, 0),
             child: ElevatedButton(onPressed: (){
-              //Navigator.push(context, MaterialPageRoute(builder: (context) => SecondRoute()));
+              //Navigator.push(context, MaterialPageRoute(builder: (context) => Inicio()));
+
               showDialog(context: context, builder: (context) {
                 return AlertDialog(
-                  content: Text(controladorDescripcion.text),
+                  content: Text("El formulario a enviar es el siguiente: \n\n" + generarFormulario()),
                 );
               });
             },
@@ -138,5 +134,28 @@ class MyCustomFormState extends State<MyCustomForm> {
         ),
       ],
     );
+  }
+
+  String asignarPrioridad(){
+    String prioridad = "Baja";
+    double edad = double.parse(controladorEdad.text);
+    if (edad >= 80 && edad <= 65)
+      prioridad = "Alta";
+
+    else if (edad >= 40 && edad < 65)
+      prioridad = "Media";
+
+    return prioridad;
+  }
+
+  String generarFormulario(){
+    String prioridad = asignarPrioridad();
+    String edad = controladorEdad.text;
+    String dni = controladorDNI.text;
+    String descripcion = controladorDescripcion.text;
+
+    String formulario = "Prioridad: " + prioridad + "\n" + "DNI: " +dni + "\n" + "Edad: " + edad + "\n"+ "Descripción: " + descripcion;
+
+    return formulario;
   }
 }
