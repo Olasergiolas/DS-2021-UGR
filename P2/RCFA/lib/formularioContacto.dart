@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:taller_flutter/encriptacionBase64.dart';
 import 'recomendacion.dart';
 import 'inicio.dart';
+import 'metodoEncriptacion.dart';
+import 'encriptacionSimple.dart';
 
 class FormularioContacto extends StatelessWidget {
   @override
@@ -28,6 +31,12 @@ class MyCustomFormState extends State<MyCustomForm> {
   final controladorEdad = TextEditingController();
   final controladorDescripcion = TextEditingController();
 
+  MetodoEncriptacion encriptacion = new EncriptacionBase64();
+
+  void setEstrategiaEncriptacion(MetodoEncriptacion m){
+    encriptacion = m;
+  }
+
   @override
   void dispose(){
     controladorDNI.dispose();
@@ -42,7 +51,7 @@ class MyCustomFormState extends State<MyCustomForm> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
         Padding(
-          padding: const EdgeInsets.all(20.0),
+          padding: const EdgeInsets.fromLTRB(20, 60, 20, 150),
           child: Align(
             alignment: Alignment.center,
             child: SizedBox(
@@ -115,7 +124,8 @@ class MyCustomFormState extends State<MyCustomForm> {
 
               showDialog(context: context, builder: (context) {
                 return AlertDialog(
-                  content: Text("El formulario a enviar es el siguiente: \n\n" + generarFormulario()),
+                  content: Text("El formulario generado es el siguiente: \n\n" + generarFormulario()
+                   + "\n\n" + encriptarFormulario()),
                 );
               });
             },
@@ -136,7 +146,7 @@ class MyCustomFormState extends State<MyCustomForm> {
   String asignarPrioridad(){
     String prioridad = "Baja";
     double edad = double.parse(controladorEdad.text);
-    if (edad >= 80 && edad <= 65)
+    if (edad >= 80 && edad >= 65)
       prioridad = "Alta";
 
     else if (edad >= 40 && edad < 65)
@@ -154,5 +164,12 @@ class MyCustomFormState extends State<MyCustomForm> {
     String formulario = "Prioridad: " + prioridad + "\n" + "DNI: " +dni + "\n" + "Edad: " + edad + "\n"+ "Descripción: " + descripcion;
 
     return formulario;
+  }
+
+  String encriptarFormulario(){
+    String title = "\nEl formulario encriptado es el siguiente: \n\n";
+    String body = encriptacion.encriptarFormulario(generarFormulario());
+    String res = title + body;
+    return res;
   }
 }
