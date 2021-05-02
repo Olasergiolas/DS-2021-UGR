@@ -8,11 +8,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
-import 'package:taller_flutter/formularioContacto.dart';
 import 'package:taller_flutter/inicio.dart';
+import 'package:taller_flutter/mockNavigatorObserver.dart';
 
 void main() {
-  testWidgets('Counter increments smoke test', (WidgetTester tester) async {
+  /*testWidgets('Counter increments smoke test', (WidgetTester tester) async {
     // Build our app and trigger a frame.
     await tester.pumpWidget(Inicio());
 
@@ -27,5 +27,26 @@ void main() {
     // Verify that our counter has incremented.
     expect(find.text('0'), findsNothing);
     expect(find.text('1'), findsOneWidget);
+  });*/
+
+  testWidgets('Pag principal', (WidgetTester tester) async{
+    final mockObserver = MockNavigationObserver();
+
+    await tester.pumpWidget(
+        MaterialApp(
+          home: Inicio(),
+          navigatorObservers: [mockObserver],
+        )
+    );
+    expect(find.text('Pantalla de Bienvenida'), findsOneWidget);
+
+    await tester.tap(find.text('Formulario de Contacto'));
+    await tester.pumpAndSettle();
+    expect(find.text('Formulario de contacto positivo'), findsOneWidget);
+
+    final backIcon = find.byTooltip('Back');
+    await tester.tap(backIcon);
+    await tester.pumpAndSettle();
+    expect(find.text('Pantalla de Bienvenida'), findsOneWidget);
   });
 }

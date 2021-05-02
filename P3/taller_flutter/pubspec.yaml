@@ -31,6 +31,8 @@ dependencies:
 
   english_words: ^4.0.0-0
 
+  mockito: ^5.0.7
+
 dev_dependencies:
   test: any
   flutter_test:
