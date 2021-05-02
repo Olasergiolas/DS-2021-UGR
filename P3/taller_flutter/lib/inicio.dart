@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:taller_flutter/formularioContacto.dart';
 import 'recomendacion.dart';
 import 'formularioContacto.dart';
 
@@ -30,10 +29,8 @@ class PantallaInicio extends StatefulWidget{
 class PantallaInicioState extends State<PantallaInicio> {
   @override
   Widget build(BuildContext context){
-    return SingleChildScrollView(
-      child: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+    return ListView(
+      key: Key("listado_inicio"),
           children: <Widget>[
             Padding(
               padding: const EdgeInsets.fromLTRB(30, 10, 30, 70),
@@ -113,8 +110,6 @@ class PantallaInicioState extends State<PantallaInicio> {
               ),
             ),
           ],
-        ),
-      ),
-    );
+        );
   }
 }

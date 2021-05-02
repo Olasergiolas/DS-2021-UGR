@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:taller_flutter/encriptacionSimple.dart';
+import 'encriptacionSimple.dart';
 import 'encriptacionBase64.dart';
 import 'metodoEncriptacion.dart';
 
@@ -61,7 +61,7 @@ class MyCustomFormState extends State<MyCustomForm> {
               alignment: Alignment.center,
               child: SizedBox(
                   width: 350,
-                  //child: Image.network('http://c.files.bbci.co.uk/D505/production/_115033545_gettyimages-1226314512.jpg')
+                  child: Image.asset("imagenes/formulario.jpg"),
               ),
             ),
           ),
@@ -123,7 +123,7 @@ class MyCustomFormState extends State<MyCustomForm> {
             ),
           ),
           Padding(
-            padding: const EdgeInsets.fromLTRB(9, 30, 0, 0),
+            padding: const EdgeInsets.fromLTRB(9, 30, 0, 9),
               child: ElevatedButton(onPressed: (){
                 //Navigator.push(context, MaterialPageRoute(builder: (context) => Inicio()));
 

@@ -10,25 +10,9 @@ import 'package:flutter_test/flutter_test.dart';
 
 import 'package:taller_flutter/inicio.dart';
 import 'package:taller_flutter/mockNavigatorObserver.dart';
+import 'package:taller_flutter/recomendacion.dart';
 
 void main() {
-  /*testWidgets('Counter increments smoke test', (WidgetTester tester) async {
-    // Build our app and trigger a frame.
-    await tester.pumpWidget(Inicio());
-
-    // Verify that our counter starts at 0.
-    expect(find.text('0'), findsOneWidget);
-    expect(find.text('1'), findsNothing);
-
-    // Tap the '+' icon and trigger a frame.
-    await tester.tap(find.byIcon(Icons.add));
-    await tester.pump();
-
-    // Verify that our counter has incremented.
-    expect(find.text('0'), findsNothing);
-    expect(find.text('1'), findsOneWidget);
-  });*/
-
   testWidgets('Pag principal', (WidgetTester tester) async{
     final mockObserver = MockNavigationObserver();
 
@@ -48,5 +32,73 @@ void main() {
     await tester.tap(backIcon);
     await tester.pumpAndSettle();
     expect(find.text('Pantalla de Bienvenida'), findsOneWidget);
+
+
+    final listado = find.byKey(Key("listado_inicio"));
+    final Offset point = tester.getCenter(listado);
+    await tester.dragFrom(point, Offset(0.0, -400.0));
+    await tester.pump();
+
+    await tester.tap(find.text('Recomendación Vacuna'));
+    await tester.pumpAndSettle();
+    expect(find.text('Recomendación Vacuna'), findsOneWidget);
+
+    final backIcon2 = find.byTooltip('Back');
+    await tester.tap(backIcon2);
+    await tester.pumpAndSettle();
+    expect(find.text('Pantalla de Bienvenida'), findsOneWidget);
+  });
+
+  testWidgets('Almacenamiento de respuestas test', (WidgetTester tester) async{
+    await tester.pumpWidget(
+        MaterialApp(
+          home: Recomendaciones()
+        )
+    );
+
+    final listado = find.byKey(Key("lista_preguntas"));
+
+    await tester.tap(find.byKey(Key("si_embarazo")));
+    await tester.tap(find.byKey(Key("si_anticoagulantes")));
+    await tester.tap(find.byKey(Key("si_mayor")));
+    await tester.pumpAndSettle();
+    RecomendacionesState estado = tester.state(find.byType(MisRecomendaciones));
+
+    expect(estado.embarazo, Respuesta.Si);
+    expect(estado.anticoagulantes, Respuesta.Si);
+    expect(estado.mayor, Respuesta.Si);
+
+
+    final Offset point = tester.getCenter(listado);
+    await tester.dragFrom(point, Offset(0.0, -400.0));
+    await tester.pump();
+
+    await tester.tap(find.byKey(Key("si_desplazamiento")));
+    await tester.tap(find.byKey(Key("si_menor")));
+    await tester.pump();
+
+    expect(estado.desplazamiento, Respuesta.Si);
+    expect(estado.menor, Respuesta.Si);
+  });
+
+  testWidgets('Mostrar alerta con vacuna', (WidgetTester tester) async{
+    await tester.pumpWidget(
+        MaterialApp(
+            home: Recomendaciones()
+        )
+    );
+    RecomendacionesState estado = tester.state(find.byType(MisRecomendaciones));
+
+    final listado = find.byKey(Key("lista_preguntas"));
+    final Offset point = tester.getCenter(listado);
+    await tester.dragFrom(point, Offset(0.0, -400.0));
+    await tester.pumpAndSettle();
+
+    final enviar = find.byKey(Key("btn_enviar"));
+    await tester.tap(enviar);
+    await tester.pumpAndSettle();
+
+    //final alerta = find.byKey(Key("alerta_recomendacion"), skipOffstage: false);
+    expect(estado.alert_displayed, false);
   });
 }

@@ -3,19 +3,35 @@ import 'package:flutter/material.dart';
 enum Respuesta {Si, No}
 enum Vacuna {Pfizer, Moderna, Astrazeneca, Janssen, Ninguna}
 
-class Recomendaciones extends StatefulWidget{
+class Recomendaciones extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    final appTitle = 'Recomendación Vacuna';
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(appTitle),
+        backgroundColor: Color.fromRGBO(155, 229, 170, 1),
+      ),
+      body: MisRecomendaciones(),
+    );
+  }
+}
+
+class MisRecomendaciones extends StatefulWidget{
   @override
   RecomendacionesState createState() {
     return RecomendacionesState();
   }
 }
 
-class RecomendacionesState extends State<Recomendaciones> {
+class RecomendacionesState extends State<MisRecomendaciones> {
   Respuesta? embarazo = Respuesta.No;
   Respuesta? anticoagulantes = Respuesta.No;
   Respuesta? desplazamiento = Respuesta.No;
   Respuesta? mayor = Respuesta.No;
   Respuesta? menor = Respuesta.No;
+
+  bool alert_displayed = false;
 
   Vacuna vacuna = Vacuna.Pfizer;
   int puntuacion = 0;
@@ -29,13 +45,8 @@ class RecomendacionesState extends State<Recomendaciones> {
   }
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text("Test de vacunación"),
-        backgroundColor: Color.fromRGBO(155, 229, 170, 1),
-      ),
-      body: SingleChildScrollView(
-        child: Column(
+    return ListView(
+          key: Key("lista_preguntas"),
           children: <Widget>[
           Padding(
             padding: const EdgeInsets.fromLTRB(20, 35, 0, 10),
@@ -48,6 +59,7 @@ class RecomendacionesState extends State<Recomendaciones> {
           ),
           RadioListTile(
             title: const Text('Sí'),
+            key: Key("si_embarazo"),
             value: Respuesta.Si,
             groupValue: embarazo,
             onChanged: (Respuesta? value) {
@@ -58,6 +70,7 @@ class RecomendacionesState extends State<Recomendaciones> {
           ),
           RadioListTile(
             title: const Text('No'),
+            key: Key("no_embarazo"),
             value: Respuesta.No,
             groupValue: embarazo,
             onChanged: (Respuesta? value) {
@@ -78,6 +91,7 @@ class RecomendacionesState extends State<Recomendaciones> {
           RadioListTile(
             title: const Text('Sí'),
             value: Respuesta.Si,
+            key: Key("si_anticoagulantes"),
             groupValue: anticoagulantes,
             onChanged: (Respuesta? value) {
               setState(() {
@@ -88,6 +102,7 @@ class RecomendacionesState extends State<Recomendaciones> {
           RadioListTile(
             title: const Text('No'),
             value: Respuesta.No,
+            key: Key("no_anticoagulantes"),
             groupValue: anticoagulantes,
             onChanged: (Respuesta? value) {
               setState(() {
@@ -106,6 +121,7 @@ class RecomendacionesState extends State<Recomendaciones> {
           ),
           RadioListTile(
             title: const Text('Sí'),
+            key: Key("si_mayor"),
             value: Respuesta.Si,
             groupValue: mayor,
             onChanged: (Respuesta? value) {
@@ -116,6 +132,7 @@ class RecomendacionesState extends State<Recomendaciones> {
           ),
           RadioListTile(
             title: const Text('No'),
+            key: Key("no_mayor"),
             value: Respuesta.No,
             groupValue: mayor,
             onChanged: (Respuesta? value) {
@@ -136,6 +153,7 @@ class RecomendacionesState extends State<Recomendaciones> {
           RadioListTile(
             title: const Text('Sí'),
             value: Respuesta.Si,
+            key: Key("si_desplazamiento"),
             groupValue: desplazamiento,
             onChanged: (Respuesta? value) {
               setState(() {
@@ -146,6 +164,7 @@ class RecomendacionesState extends State<Recomendaciones> {
           RadioListTile(
             title: const Text('No'),
             value: Respuesta.No,
+            key: Key("no_desplazamiento"),
             groupValue: desplazamiento,
             onChanged: (Respuesta? value) {
               setState(() {
@@ -165,6 +184,7 @@ class RecomendacionesState extends State<Recomendaciones> {
           RadioListTile(
             title: const Text('Sí'),
             value: Respuesta.Si,
+            key: Key("si_menor"),
             groupValue: menor,
             onChanged: (Respuesta? value) {
               setState(() {
@@ -174,6 +194,7 @@ class RecomendacionesState extends State<Recomendaciones> {
           ),
           RadioListTile(
             title: const Text('No'),
+            key: Key("no_menor"),
             value: Respuesta.No,
             groupValue: menor,
             onChanged: (Respuesta? value) {
@@ -182,25 +203,22 @@ class RecomendacionesState extends State<Recomendaciones> {
               });
             },
           ), //Fin 5ª pregunta
-            Padding(
-              padding: const EdgeInsets.fromLTRB(9, 30, 0, 0),
-              child: ElevatedButton(onPressed: (){
-                //Navigator.push(context, MaterialPageRoute(builder: (context) => Inicio()));
-
+            GestureDetector(
+              key: Key("btn_enviar"),
+              onTap: (){
                 showDialog(context: context, builder: (context) {
                   return AlertDialog(
+                    key: Key("alerta_recomendacion"),
                     content: Text(getRecomendacion()),
                   );
                 });
+                alert_displayed = true;
               },
-                  child: Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Text("Enviar"),
+              child: Padding(
+                    padding: const EdgeInsets.fromLTRB(20, 15, 0, 15),
+                    child: Text("Enviar", style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),),
                   )),
-            ),
-        ]),
-      ),
-    );
+        ]);
   }
 
   Vacuna getVacuna(){
@@ -264,5 +282,9 @@ class RecomendacionesState extends State<Recomendaciones> {
     }
 
     return puntuacion;
+  }
+
+  bool getAlert(){
+    return alert_displayed;
   }
 }
