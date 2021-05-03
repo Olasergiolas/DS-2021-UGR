@@ -14,12 +14,10 @@ import 'package:taller_flutter/recomendacion.dart';
 
 void main() {
   testWidgets('Pag principal', (WidgetTester tester) async{
-    final mockObserver = MockNavigationObserver();
-
+    //final mockObserver = MockNavigationObserver();
     await tester.pumpWidget(
         MaterialApp(
           home: Inicio(),
-          navigatorObservers: [mockObserver],
         )
     );
     expect(find.text('Pantalla de Bienvenida'), findsOneWidget);
@@ -98,7 +96,6 @@ void main() {
     await tester.tap(enviar);
     await tester.pumpAndSettle();
 
-    //final alerta = find.byKey(Key("alerta_recomendacion"), skipOffstage: false);
     expect(estado.alert_displayed, false);
   });
 }

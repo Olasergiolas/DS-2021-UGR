@@ -25,11 +25,11 @@ class MisRecomendaciones extends StatefulWidget{
 }
 
 class RecomendacionesState extends State<MisRecomendaciones> {
-  Respuesta? embarazo = Respuesta.No;
-  Respuesta? anticoagulantes = Respuesta.No;
-  Respuesta? desplazamiento = Respuesta.No;
-  Respuesta? mayor = Respuesta.No;
-  Respuesta? menor = Respuesta.No;
+  Respuesta embarazo = Respuesta.No;
+  Respuesta anticoagulantes = Respuesta.No;
+  Respuesta desplazamiento = Respuesta.No;
+  Respuesta mayor = Respuesta.No;
+  Respuesta menor = Respuesta.No;
 
   bool alert_displayed = false;
 
@@ -62,7 +62,7 @@ class RecomendacionesState extends State<MisRecomendaciones> {
             key: Key("si_embarazo"),
             value: Respuesta.Si,
             groupValue: embarazo,
-            onChanged: (Respuesta? value) {
+            onChanged: (Respuesta value) {
               setState(() {
                 embarazo = value;
               });
@@ -73,7 +73,7 @@ class RecomendacionesState extends State<MisRecomendaciones> {
             key: Key("no_embarazo"),
             value: Respuesta.No,
             groupValue: embarazo,
-            onChanged: (Respuesta? value) {
+            onChanged: (Respuesta value) {
               setState(() {
                 embarazo = value;
               });
@@ -93,7 +93,7 @@ class RecomendacionesState extends State<MisRecomendaciones> {
             value: Respuesta.Si,
             key: Key("si_anticoagulantes"),
             groupValue: anticoagulantes,
-            onChanged: (Respuesta? value) {
+            onChanged: (Respuesta value) {
               setState(() {
                 anticoagulantes = value;
               });
@@ -104,7 +104,7 @@ class RecomendacionesState extends State<MisRecomendaciones> {
             value: Respuesta.No,
             key: Key("no_anticoagulantes"),
             groupValue: anticoagulantes,
-            onChanged: (Respuesta? value) {
+            onChanged: (Respuesta value) {
               setState(() {
                 anticoagulantes = value;
               });
@@ -124,7 +124,7 @@ class RecomendacionesState extends State<MisRecomendaciones> {
             key: Key("si_mayor"),
             value: Respuesta.Si,
             groupValue: mayor,
-            onChanged: (Respuesta? value) {
+            onChanged: (Respuesta value) {
               setState(() {
                 mayor = value;
               });
@@ -135,7 +135,7 @@ class RecomendacionesState extends State<MisRecomendaciones> {
             key: Key("no_mayor"),
             value: Respuesta.No,
             groupValue: mayor,
-            onChanged: (Respuesta? value) {
+            onChanged: (Respuesta value) {
               setState(() {
                 mayor = value;
               });
@@ -155,7 +155,7 @@ class RecomendacionesState extends State<MisRecomendaciones> {
             value: Respuesta.Si,
             key: Key("si_desplazamiento"),
             groupValue: desplazamiento,
-            onChanged: (Respuesta? value) {
+            onChanged: (Respuesta value) {
               setState(() {
                 desplazamiento = value;
               });
@@ -166,7 +166,7 @@ class RecomendacionesState extends State<MisRecomendaciones> {
             value: Respuesta.No,
             key: Key("no_desplazamiento"),
             groupValue: desplazamiento,
-            onChanged: (Respuesta? value) {
+            onChanged: (Respuesta value) {
               setState(() {
                 desplazamiento = value;
               });
@@ -186,7 +186,7 @@ class RecomendacionesState extends State<MisRecomendaciones> {
             value: Respuesta.Si,
             key: Key("si_menor"),
             groupValue: menor,
-            onChanged: (Respuesta? value) {
+            onChanged: (Respuesta value) {
               setState(() {
                 menor = value;
               });
@@ -197,7 +197,7 @@ class RecomendacionesState extends State<MisRecomendaciones> {
             key: Key("no_menor"),
             value: Respuesta.No,
             groupValue: menor,
-            onChanged: (Respuesta? value) {
+            onChanged: (Respuesta value) {
               setState(() {
                 menor = value;
               });
@@ -210,6 +210,9 @@ class RecomendacionesState extends State<MisRecomendaciones> {
                   return AlertDialog(
                     key: Key("alerta_recomendacion"),
                     content: Text(getRecomendacion()),
+                    actions: [
+                      new TextButton(onPressed: () => Navigator.pop(context), child: const Text("Ok"),)
+                    ],
                   );
                 });
                 alert_displayed = true;

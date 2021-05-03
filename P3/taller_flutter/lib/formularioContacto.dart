@@ -51,9 +51,7 @@ class MyCustomFormState extends State<MyCustomForm> {
 
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
+    return ListView(
         children: <Widget>[
           Padding(
             padding: const EdgeInsets.fromLTRB(20, 60, 20, 150),
@@ -77,6 +75,7 @@ class MyCustomFormState extends State<MyCustomForm> {
           Padding(
             padding: EdgeInsets.symmetric(horizontal: 8, vertical: 10),
             child: TextField(
+              key: Key("dni_textfield"),
               controller: controladorDNI,
               decoration: InputDecoration(
                 border: OutlineInputBorder(),
@@ -96,6 +95,7 @@ class MyCustomFormState extends State<MyCustomForm> {
           Padding(
             padding: EdgeInsets.symmetric(horizontal: 8, vertical: 10),
             child: TextField(
+              key: Key("edad_textfield"),
               controller: controladorEdad,
               decoration: InputDecoration(
                 border: OutlineInputBorder(),
@@ -115,6 +115,7 @@ class MyCustomFormState extends State<MyCustomForm> {
           Padding(
             padding: EdgeInsets.symmetric(horizontal: 8, vertical: 10),
             child: TextField(
+              key: Key("desc_textfield"),
               controller: controladorDescripcion,
               decoration: InputDecoration(
                 border: OutlineInputBorder(),
@@ -122,41 +123,40 @@ class MyCustomFormState extends State<MyCustomForm> {
               ),
             ),
           ),
-          Padding(
-            padding: const EdgeInsets.fromLTRB(9, 30, 0, 9),
-              child: ElevatedButton(onPressed: (){
-                //Navigator.push(context, MaterialPageRoute(builder: (context) => Inicio()));
+          ElevatedButton(
+              key: Key("btn_enviar_formulario"),
+              onPressed: (){
+            //Navigator.push(context, MaterialPageRoute(builder: (context) => Inicio()));
 
-                showDialog(context: context, builder: (context) {
-                  return AlertDialog(
-                    content: Text("El formulario generado es el siguiente: \n\n" + generarFormulario()
-                     + "\n\n" + encriptarFormulario()),
-                  );
-                });
-              },
-                child: Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: RichText(
-                  text: TextSpan(
-                    style: DefaultTextStyle.of(context).style.apply(fontSizeFactor: 1.3),
-                    text: 'Enviar formulario',
-              ),
+            showDialog(context: context, builder: (context) {
+              return AlertDialog(
+                key: Key("alerta_formulario"),
+                actions: [
+                  new TextButton(onPressed: () => Navigator.pop(context), child: const Text("Ok"),)
+                ],
+                content: Text("El formulario generado es el siguiente: \n\n" + generarFormulario()
+                 + "\n\n" + encriptarFormulario()),
+              );
+            });
+          },
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Text('Enviar formulario', style: TextStyle(fontSize: 18),
             ),
           )),
-        ),
         ],
-      ),
-    );
+      );
   }
 
   String asignarPrioridad(){
     String prioridad = "Baja";
-    double edad = double.parse(controladorEdad.text);
-    if (edad >= 80 && edad >= 65)
-      prioridad = "Alta";
-
-    else if (edad >= 40 && edad < 65)
-      prioridad = "Media";
+    if (controladorEdad.text != "") {
+      double edad = double.parse(controladorEdad.text);
+      if (edad >= 80 && edad >= 65)
+        prioridad = "Alta";
+      else if (edad >= 40 && edad < 65)
+        prioridad = "Media";
+    }
 
     return prioridad;
   }
