@@ -152,7 +152,7 @@ class MyCustomFormState extends State<MyCustomForm> {
     String prioridad = "Baja";
     if (controladorEdad.text != "") {
       double edad = double.parse(controladorEdad.text);
-      if (edad >= 80 && edad >= 65)
+      if (edad >= 65)
         prioridad = "Alta";
       else if (edad >= 40 && edad < 65)
         prioridad = "Media";
@@ -161,13 +161,15 @@ class MyCustomFormState extends State<MyCustomForm> {
     return prioridad;
   }
 
-  String generarFormulario(){
-    String prioridad = asignarPrioridad();
+  String generarFormulario({String p = ""}){
+    if (p == "")
+      p = asignarPrioridad();
+
     String edad = controladorEdad.text;
     String dni = controladorDNI.text;
     String descripcion = controladorDescripcion.text;
 
-    String formulario = "Prioridad: " + prioridad + "\n" + "DNI: " +dni + "\n" + "Edad: " + edad + "\n"+ "Descripción: " + descripcion;
+    String formulario = "Prioridad: " + p + "\n" + "DNI: " +dni + "\n" + "Edad: " + edad + "\n"+ "Descripción: " + descripcion;
 
     return formulario;
   }

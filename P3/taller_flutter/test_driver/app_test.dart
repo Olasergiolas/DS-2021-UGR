@@ -39,7 +39,7 @@ void main() {
       expect(await driver.getText(inicioTextoFinder),"Pantalla de Bienvenida");
     });
 
-    test('Formulario',() async{
+    test('Página del formulario',() async{
       await driver.tap(buttonFormularioFinder);
       expect(await driver.getText(formularioTextoFinder),"Formulario de contacto positivo");
     });
